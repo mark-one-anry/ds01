@@ -13,7 +13,7 @@ public class SpitterAI : MonoBehaviour
 
     private Animator anim;
 
-    private int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range
+    private int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range, -1 - death
     private int lastDirection; // last move direction
     private float nextWaypoint; // next point to patrol
     private float lastStateTime;
@@ -178,5 +178,11 @@ public class SpitterAI : MonoBehaviour
     {        
         activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
         target = null;
+    }
+
+    public void Die()
+    {
+        activeState = -1;
+        
     }
 }
