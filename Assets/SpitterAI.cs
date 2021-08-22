@@ -10,14 +10,17 @@ public class EnemyBase : MonoBehaviour
     public float PATROL_RANGE = 2500f; // distance to patrol
     public float SEE_RANGE = 250f;
     public float SPELL_RANGE = 2.5f;
-    public float SPELL_DELAY = 4f;
+    public float SPELL_DELAY = 6f;
 
     public Transform homePoint; 
+    public Transform ShootingPosition;
 
     protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range, -1 - death
     
     protected int health; 
     protected float spellCastLastTime;
+
+    
 
     private Animator objectAnimator; 
     // Start is called before the first frame update
@@ -206,7 +209,7 @@ public class SpitterAI : EnemyBase
     void castSlow()
     {
         Debug.Log("Casting slow ");
-        Instantiate(SlowBall, transform.position, transform.rotation);
+        Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
     }
 
     // check if there are any enemies withing seeing range

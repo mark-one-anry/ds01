@@ -27,6 +27,11 @@ using UnityEngine.SceneManagement;
         private bool crystalnear = false;
         private float lastStateTime;
 
+        private float sourceMass;
+        private float sourceSpeed;
+        private bool slowActive;
+        private float slowEndTime;
+
 
 
         // Start is called before the first frame update
@@ -36,6 +41,9 @@ using UnityEngine.SceneManagement;
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             lastStateTime = Time.time;
+            sourceMass = rb.mass;
+            sourceSpeed = movePower;
+            slowActive = false;
 
             // if mana bar is defined - initialize it 
             currentMana = maxMana;
@@ -56,6 +64,7 @@ using UnityEngine.SceneManagement;
                 Attack();
                 Jump();
                 Run();
+                CheckSpellEffects();
 
             }
             float timeIdle = (Time.time - lastStateTime);
@@ -240,6 +249,24 @@ using UnityEngine.SceneManagement;
             {
                 currentMana+=1;
                 manaSlider.SetMana(currentMana);
+            }
+        }
+
+        public void slowEffect(float massEffect, float speedEffect, float time)
+        {
+            rb.mass = rb.mass * massEffect;
+            movePower = movePower / speedEffect;
+            slowActive = true;
+            slowEndTime = Time.time + time;
+        }
+
+        private void CheckSpellEffects()
+        {
+            if(slowActive && Time.time >= slowEndTime)
+            {
+                rb.mass = sourceMass;
+                movePower = sourceSpeed;
+                slowActive = false;
             }
         }
     }

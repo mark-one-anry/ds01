@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlowBall : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 6f;
     public float slowEffect = 3f;
     public float slowTime=3f;
     private Rigidbody2D rb;
@@ -27,6 +27,7 @@ public class SlowBall : MonoBehaviour
     void Update()
     {
         // finish slow
+        /*
         if(slowInProgress && (Time.time - slowStartTime)>=slowTime)
         {
             slowInProgress = false; 
@@ -34,10 +35,12 @@ public class SlowBall : MonoBehaviour
             playerController.movePower = sourceMovePower;
             Destroy(gameObject);
         }
+        */
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {        
+    {   
+        Debug.Log("Slowball OnTriggerEnter2D");
         LayerMask plm = LayerMask.GetMask("Player");
         LayerMask wlm = LayerMask.GetMask("Wall");
 
@@ -47,14 +50,18 @@ public class SlowBall : MonoBehaviour
             //other.gameObject.GetComponent<SimplePlayerController>().hit(5f);
             targetRB = other.gameObject.GetComponent<Rigidbody2D>();
             playerController = other.gameObject.GetComponent<SimplePlayerController>();
+            /*
             slowStartTime = Time.time;
             slowInProgress = true;
             sourceMass = targetRB.mass;
             targetRB.mass = sourceMass * slowEffect;
             sourceMovePower = playerController.movePower;
             playerController.movePower = sourceMovePower / 3;
+            */
+            playerController.slowEffect(slowEffect, slowEffect, slowTime);
+            Destroy(gameObject);
             
-            gameObject.GetComponent<SpriteRenderer>().enabled=false;
+            // gameObject.GetComponent<SpriteRenderer>().enabled=false;
             // Destroy(gameObject);
         }
         else  if (wlm == (wlm | (1 << other.gameObject.layer)))

@@ -316,4 +316,5 @@ MonoBehaviour:
   SPELL_RANGE: 2.5
   SPELL_DELAY: 4
   homePoint: {fileID: 0}
-  SlowBall: {fileID: 0}
+  ShootingPosition: {fileID: 7218916497163054796}
+  SlowBall: {fileID: 386819030361594221, guid: 4cae6e891099b1245942dd33ad608eca, type: 3}
