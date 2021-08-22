@@ -1134,6 +1134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7215293277778218666, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
+      propertyPath: SlowBall
+      value: 
+      objectReference: {fileID: 386819030361594221, guid: 4cae6e891099b1245942dd33ad608eca, type: 3}
     - target: {fileID: 7215293277864140868, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: m_Layer
       value: 0
