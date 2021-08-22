@@ -32,6 +32,7 @@ using UnityEngine.SceneManagement;
         // Start is called before the first frame update
         void Start()
         {
+            
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             lastStateTime = Time.time;
@@ -72,7 +73,7 @@ using UnityEngine.SceneManagement;
             if(lm == (lm | (1 << other.gameObject.layer)))
             { 
 //exit from level
-                SceneManager.LoadScene(0);  
+                SceneManager.LoadScene("Assets/Scenes/SceneVictory",LoadSceneMode.Single);  
             }
 
             lm = LayerMask.GetMask("Crystal");
@@ -203,6 +204,7 @@ using UnityEngine.SceneManagement;
             {
                 anim.SetTrigger("die");
                 alive = false;
+                SceneManager.LoadScene("SceneDead");  
             }
         }
         void Restart()
