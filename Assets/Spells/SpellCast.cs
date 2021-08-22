@@ -6,6 +6,8 @@ public class SpellCast : MonoBehaviour
 { 
     public Transform shotpos;
     public GameObject Fire; 
+    public float spellcost = 2f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,8 @@ public class SpellCast : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             Instantiate(Fire,  shotpos.transform.position, transform.rotation);
+            GetComponent<SimplePlayerController>().cast(spellcost);
+
         }
     }
 }
