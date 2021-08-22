@@ -39,6 +39,7 @@ public class FireSpell : MonoBehaviour
         
         // if(other.gameObject.layer == LayerMask.GetMask("Enemy"))
         LayerMask lm = LayerMask.GetMask("Enemy");
+        LayerMask wlm = LayerMask.GetMask("Wall");
         if(lm == (lm | (1 << other.gameObject.layer)))
         {
             // Hit enemy
@@ -47,6 +48,13 @@ public class FireSpell : MonoBehaviour
             other.gameObject.GetComponent<EnemyBase>().hit((int)Damage);
             Destroy(gameObject);
         }
+        else  if (wlm == (wlm | (1 << other.gameObject.layer)))
+        {
+            // Hit wall 
+            Destroy(gameObject);
+        }
+
+
         
 
         
