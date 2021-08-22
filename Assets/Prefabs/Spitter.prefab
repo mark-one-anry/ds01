@@ -156,7 +156,6 @@ GameObject:
   - component: {fileID: 7276310150819622758}
   - component: {fileID: 7310157994457527074}
   - component: {fileID: 7215293277778218666}
-  - component: {fileID: 66055756050066403}
   m_Layer: 7
   m_Name: Spitter
   m_TagString: Untagged
@@ -309,21 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c01b7920804b9c46961331dfbb19d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  someValue: 0
   movePower: 4
   chasePower: 7
   PATROL_RANGE: 3
   SEE_RANGE: 250
   homePoint: {fileID: 0}
---- !u!114 &66055756050066403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7216455444986050104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456f57fe3e4c2c042b960226763c4bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 10
