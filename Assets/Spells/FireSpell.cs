@@ -44,7 +44,7 @@ public class FireSpell : MonoBehaviour
             // Hit enemy
             Debug.Log("pre hit enemy: " + other.gameObject);
 
-            other.gameObject.GetComponent<EnemyControler>().hit((int)Damage);
+            other.gameObject.GetComponent<EnemyBase>().hit((int)Damage);
             Destroy(gameObject);
         }
         

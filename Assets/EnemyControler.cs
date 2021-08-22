@@ -28,7 +28,7 @@ public class EnemyControler : MonoBehaviour
         
         if(health < 0.1f){
             anim.SetTrigger("Death");
-            //Destroy(gameObject, shrink.clip.length);
+            //Destroy(gameObject, shrink.clip.length); d
             gameObject.GetComponent<SpitterAI>().Die();
 
         }

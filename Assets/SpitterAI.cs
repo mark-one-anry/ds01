@@ -2,18 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpitterAI : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
+    public int MaxHealth = 10;
     public float movePower = 4f;
     public float chasePower = 7f;
     public float PATROL_RANGE = 2500f; // distance to patrol
     public float SEE_RANGE = 250f;
     public Transform homePoint; 
+
+    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range, -1 - death
+    
+    private int health; 
+
+    private Animator objectAnimator; 
+    // Start is called before the first frame update
+    protected void Start()
+    {
+        health = MaxHealth;
+        objectAnimator = GetComponent<Animator>();
+    }
+
+    public void hit(int dmg)
+    {
+        Debug.Log("hit by " + dmg);
+        health-=dmg;
+        
+        if(health < 0.1f){
+            Die();
+        }
+        else 
+            objectAnimator.SetTrigger("Hit");       
+    }
+
+    public void Die()
+    {
+        activeState = -1;
+        objectAnimator.SetTrigger("Death");
+        Destroy(gameObject,0.58f);
+    }
+}
+
+// public class SpitterAI : MonoBehaviour
+public class SpitterAI : EnemyBase
+{
+
     private Vector3 startingPosition;
 
     private Animator anim;
 
-    private int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range, -1 - death
+    
     private int lastDirection; // last move direction
     private float nextWaypoint; // next point to patrol
     private float lastStateTime;
@@ -23,6 +61,7 @@ public class SpitterAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         anim = GetComponent<Animator>();
 
         startingPosition = transform.position;
@@ -169,7 +208,7 @@ public class SpitterAI : MonoBehaviour
         {            
             activeState = 2; // switch to chase state 
             target = obj.transform; // set target
-            nextWaypoint = obj.transform.position.x;// set waypoint to player
+            nextWaypoint = obj.transform.position.x;// set waypoint to player 
         }
         // Debug.Log("Chasing player at " + nextWaypoint);     
     }
@@ -178,11 +217,5 @@ public class SpitterAI : MonoBehaviour
     {        
         activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
         target = null;
-    }
-
-    public void Die()
-    {
-        activeState = -1;
-        
     }
 }
