@@ -15,7 +15,7 @@ using UnityEngine.SceneManagement;
         bool isJumping = false;
         private bool alive = true;
 
-        public int maxMana = 10;
+        public int maxMana = 30;
         
         private int currentMana;
         public ManaBarScript manaSlider;
@@ -186,5 +186,13 @@ using UnityEngine.SceneManagement;
             currentMana-=(int)dmg;
             manaSlider.SetMana(currentMana);
             anim.SetTrigger("hurt");
+        }
+
+
+        public void cast(float spellcost)
+        {
+            currentMana-=(int)spellcost;
+            manaSlider.SetMana(currentMana);
+            anim.SetTrigger("attack");
         }
     }

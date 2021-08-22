@@ -9,6 +9,7 @@ public class invisibilitySpell : MonoBehaviour
     private Color col;
     private float activationTime;
     private bool invisible;
+    public float spellcost = 5f;
 
 
     void Start()
@@ -41,9 +42,11 @@ public class invisibilitySpell : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.I) && !invisible)
+
         {
             invisible = true;
+            GetComponent<SimplePlayerController>().cast(spellcost);
             activationTime = 0;
             foreach(SpriteRenderer cc in WizRender)
             {
