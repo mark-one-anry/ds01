@@ -24,6 +24,9 @@ using UnityEngine.SceneManagement;
         // few constants
         private int ATTACK_COST = 1;
         private int HURT_COST = 3;
+        private bool crystalnear = false;
+        private float lastStateTime;
+
 
 
         // Start is called before the first frame update
@@ -31,6 +34,7 @@ using UnityEngine.SceneManagement;
         {
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
+            lastStateTime = Time.time;
 
             // if mana bar is defined - initialize it 
             currentMana = maxMana;
@@ -53,6 +57,12 @@ using UnityEngine.SceneManagement;
                 Run();
 
             }
+            float timeIdle = (Time.time - lastStateTime);
+            if (crystalnear && timeIdle > 1f) 
+            {
+                lastStateTime = Time.time;
+                manarevive();
+            }
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -60,12 +70,38 @@ using UnityEngine.SceneManagement;
             anim.SetBool("isJump", false);
             LayerMask lm = LayerMask.GetMask("Exit");
             if(lm == (lm | (1 << other.gameObject.layer)))
-            {
+            { 
 //exit from level
                 SceneManager.LoadScene(0);  
             }
+
+            lm = LayerMask.GetMask("Crystal");
+            if(lm == (lm | (1 << other.gameObject.layer)))
+            {
+                 crystalnear = true;
+                 SpriteRenderer CrystalLight = other.GetComponentInChildren<SpriteRenderer>();
+                 Color CrystalLightColor = CrystalLight.color;
+                 CrystalLightColor.g = 100;
+                 CrystalLightColor.b = 0;
+                 CrystalLight.color = CrystalLightColor;
+            }
+
         }
 
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            LayerMask lmExit = LayerMask.GetMask("Crystal");
+            if(lmExit == (lmExit | (1 << other.gameObject.layer)))
+            {
+                 crystalnear = false;
+                 SpriteRenderer CrystalLight = other.GetComponentInChildren<SpriteRenderer>();
+                 Color CrystalLightColor = CrystalLight.color;
+                 CrystalLightColor.g = 255;
+                 CrystalLightColor.b = 255;
+                 CrystalLight.color = CrystalLightColor;
+            }
+
+        }
 
         void Run()
         {
@@ -194,5 +230,14 @@ using UnityEngine.SceneManagement;
             currentMana-=(int)spellcost;
             manaSlider.SetMana(currentMana);
             anim.SetTrigger("attack");
+        }
+
+        public void manarevive()
+        {
+            if (currentMana <= maxMana) 
+            {
+                currentMana+=1;
+                manaSlider.SetMana(currentMana);
+            }
         }
     }

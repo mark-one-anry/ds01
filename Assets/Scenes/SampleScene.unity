@@ -523,9 +523,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: 5195792040044086114, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258914, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_RootOrder
@@ -583,6 +591,10 @@ PrefabInstance:
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258914, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_RootOrder
@@ -1048,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258914, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1113,6 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotpos: {fileID: 876878560}
   Fire: {fileID: 1373123448411363334, guid: a4ebfd49f1d1ed441aec956f2ca6f891, type: 3}
+  spellcost: 2
 --- !u!114 &954903897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,6 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b005566a3e3bf184790633763b91fbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellcost: 5
 --- !u!1001 &1073783318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1204,6 +1222,10 @@ PrefabInstance:
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258914, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_RootOrder
@@ -1404,6 +1426,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.048983574
       objectReference: {fileID: 0}
+    - target: {fileID: 5166204745258762439, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
+      propertyPath: maxMana
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5166204745684588920, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1565,7 +1591,6 @@ GameObject:
   - component: {fileID: 1415990538}
   - component: {fileID: 1415990539}
   - component: {fileID: 1415990541}
-  - component: {fileID: 1415990540}
   - component: {fileID: 1415990542}
   m_Layer: 8
   m_Name: Exit
@@ -1639,18 +1664,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1415990540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415990537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f96717bbac31b84398c7d88b79d164c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1415990541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2948,7 +2961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082162579}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ManaCrystals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2981,9 +2994,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: 5195792040044086114, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258914, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_RootOrder
