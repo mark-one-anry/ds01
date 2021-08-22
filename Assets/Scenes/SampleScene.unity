@@ -1132,9 +1132,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7215293277864140868, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216071461326411570, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: m_Name
       value: Spitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7219407177414550970, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: m_RootOrder

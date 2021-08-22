@@ -2,8 +2,7 @@
 using UnityEngine.SceneManagement;
 
 
-namespace ClearSky
-{
+
     public class SimplePlayerController : MonoBehaviour
     {
         public float movePower = 10f;
@@ -181,5 +180,11 @@ namespace ClearSky
                 manaSlider.SetMaxMana(maxMana);
             }
         }
+
+        public void hit(float dmg)
+        {
+            currentMana-=(int)dmg;
+            manaSlider.SetMana(currentMana);
+            anim.SetTrigger("hurt");
+        }
     }
-}

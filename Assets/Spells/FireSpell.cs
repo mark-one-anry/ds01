@@ -5,7 +5,9 @@ using UnityEngine;
 public class FireSpell : MonoBehaviour
 {
     public float speed;
+    public float Damage = 3f;
     Rigidbody2D rb;
+
 
 
     // Start is called before the first frame update
@@ -18,6 +20,36 @@ public class FireSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // uncomment to filter touching objects 
+        // LayerMask lm = LayerMask.GetMask("Player", "Guard");
+        //if(lm == (lm | (1 << other.gameObject.layer)))
+        //{
+        
+        if(other.gameObject.layer == LayerMask.GetMask("Player"))
+        {
+            // Hit player
+            other.gameObject.GetComponent<SimplePlayerController>().hit(Damage);
+            Destroy(gameObject);
+        }
+        
+        // if(other.gameObject.layer == LayerMask.GetMask("Enemy"))
+        LayerMask lm = LayerMask.GetMask("Enemy");
+        if(lm == (lm | (1 << other.gameObject.layer)))
+        {
+            // Hit enemy
+            Debug.Log("pre hit enemy: " + other.gameObject);
+
+            other.gameObject.GetComponent<EnemyControler>().hit((int)Damage);
+            Destroy(gameObject);
+        }
+        
+
+        
         
     }
 }
