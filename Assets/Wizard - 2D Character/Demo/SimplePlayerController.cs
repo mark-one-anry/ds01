@@ -20,9 +20,11 @@ namespace ClearSky
         private int currentMana;
         public ManaBarScript manaSlider;
 
+        private bool facingDirectionRight;
         // few constants
         private int ATTACK_COST = 1;
         private int HURT_COST = 3;
+
 
         // Start is called before the first frame update
         void Start()
@@ -36,6 +38,7 @@ namespace ClearSky
             {
                 manaSlider.SetMaxMana(maxMana);
             }
+            facingDirectionRight = true;
         }
 
         private void Update()
@@ -70,7 +73,7 @@ namespace ClearSky
                 moveVelocity = Vector3.left;
 
  
-                transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                //transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 if (!anim.GetBool("isJump"))
                     anim.SetBool("isRun", true);
 
@@ -80,12 +83,27 @@ namespace ClearSky
                 direction = 1;
                 moveVelocity = Vector3.right;
 
-                transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x) , transform.localScale.y, transform.localScale.z);
+                //transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x) , transform.localScale.y, transform.localScale.z);
                 if (!anim.GetBool("isJump"))
                     anim.SetBool("isRun", true);
 
             }
+            // check if we need to flip 
+            float dir = Input.GetAxisRaw("Horizontal");
+            if(dir !=0 )
+            {
+                if((facingDirectionRight && dir<0) || (!facingDirectionRight && dir>0))
+                {
+                    Flip();
+                }
+            }
             transform.position += moveVelocity * movePower * Time.deltaTime;
+        }
+
+        void Flip()
+        {
+            facingDirectionRight = !facingDirectionRight;
+            transform.Rotate(0f,180f,0f);
         }
         void Jump()
         {
