@@ -56,7 +56,7 @@ namespace ClearSky
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Wizard: OnTriggerEnter2D");
+            //Debug.Log("Wizard: OnTriggerEnter2D");
             anim.SetBool("isJump", false);
         }
 
