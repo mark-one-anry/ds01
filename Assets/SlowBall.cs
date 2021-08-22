@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlowBall : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 6f;
     public float slowEffect = 3f;
     public float slowTime=3f;
     private Rigidbody2D rb;
@@ -37,7 +37,8 @@ public class SlowBall : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {        
+    {   
+        Debug.Log("Slowball OnTriggerEnter2D");
         LayerMask plm = LayerMask.GetMask("Player");
         LayerMask wlm = LayerMask.GetMask("Wall");
 
