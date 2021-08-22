@@ -22,7 +22,7 @@ public class invisibilitySpell : MonoBehaviour
 
         activationTime = 0;
         invisible = false;
-        col = character.color;
+
     }
 
     // Update is called once per frame
@@ -32,17 +32,25 @@ public class invisibilitySpell : MonoBehaviour
         if(invisible && activationTime >=3)
         {
             invisible = false;
-            col.a = 1;
-            character.color = col;
+            foreach(SpriteRenderer cc in WizRender)
+            {
+                col = cc.color;
+                col.a = 1;
+                cc.color = col;
+            }
+
         }
 
         if(Input.GetKeyDown(KeyCode.I))
         {
             invisible = true;
             activationTime = 0;
-            col.a = .2f;
-            character.color = col;
-
+            foreach(SpriteRenderer cc in WizRender)
+            {
+                col = cc.color;
+                col.a = .2f;
+                cc.color = col;
+            }
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace ClearSky
@@ -58,6 +59,12 @@ namespace ClearSky
         {
             //Debug.Log("Wizard: OnTriggerEnter2D");
             anim.SetBool("isJump", false);
+            LayerMask lm = LayerMask.GetMask("Exit");
+            if(lm == (lm | (1 << other.gameObject.layer)))
+            {
+//exit from level
+                SceneManager.LoadScene(0);  
+            }
         }
 
 
