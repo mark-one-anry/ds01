@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class invisibilitySpell : MonoBehaviour
 {
-    
+    private Component[] WizRender;
     private SpriteRenderer character;
     private Color col;
     private float activationTime;
@@ -14,7 +14,12 @@ public class invisibilitySpell : MonoBehaviour
     void Start()
     {
         
-        character = GetComponentInChildren<SpriteRenderer>();
+        WizRender = GetComponentsInChildren<SpriteRenderer>();
+        foreach(SpriteRenderer cc in WizRender)
+        {
+            character = cc;
+        }
+
         activationTime = 0;
         invisible = false;
         col = character.color;
