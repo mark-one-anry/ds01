@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public int MaxHealth = 10;
-    public float movePower = 4f;
+    public float movePower = 2f;
     public float chasePower = 7f;
     public float PATROL_RANGE = 2500f; // distance to patrol
     public float SEE_RANGE = 250f;
@@ -83,6 +83,7 @@ public class SpitterAI : EnemyBase
 
         nextWaypoint = GetNextPosition();
         lastStateTime = Time.time;
+        spellCastLastTime = 0;
     }
 
     // Get next idle action: stand still or go 
@@ -212,6 +213,7 @@ public class SpitterAI : EnemyBase
                 // check if target with spell range 
                 //float dist = Vector3.Distance(transform.position, target.position);
                 float dist = Vector3.Distance(transform.position, target.transform.position);
+                Debug.Log("Distance " + dist);
                 if(dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
                 {
                     
