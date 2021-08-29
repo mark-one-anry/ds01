@@ -98,9 +98,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.10158638}
+  m_Offset: {x: -0.052406788, y: 0.10158643}
   serializedVersion: 2
-  m_Radius: 1.8266199
+  m_Radius: 1.0929286
 --- !u!114 &386819030361594257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   speed: 10
   slowEffect: 3
   slowTime: 2
+  desiredVelocity: {x: 0, y: 0}
 --- !u!50 &386819030361594262
 Rigidbody2D:
   serializedVersion: 4

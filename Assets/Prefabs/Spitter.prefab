@@ -313,7 +313,7 @@ MonoBehaviour:
   chasePower: 7
   PATROL_RANGE: 3
   SEE_RANGE: 250
-  SPELL_RANGE: 2.5
+  SPELL_RANGE: 3.5
   SPELL_DELAY: 4
   homePoint: {fileID: 0}
   ShootingPosition: {fileID: 7218916497163054796}

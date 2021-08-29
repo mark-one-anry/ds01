@@ -60,6 +60,8 @@ public class SpitterAI : EnemyBase
 
     
     private int lastDirection; // last move direction
+    private bool facingRight; // смотрит ли наш объект направо?
+
     private float nextWaypoint; // next point to patrol
     private float lastStateTime;
 
@@ -75,7 +77,9 @@ public class SpitterAI : EnemyBase
 
         startingPosition = transform.position;
         activeState = 0;
-        lastDirection = 0;
+        // lastDirection = 0;
+        facingRight = false; 
+
         nextWaypoint = GetNextPosition();
         lastStateTime = Time.time;
     }
@@ -87,17 +91,17 @@ public class SpitterAI : EnemyBase
         // Should I stay or should I go?
         if(Random.value > 0.01f)
         {
-            if(lastDirection == 0)
-            {
-                nextAction = 1;
-            }
+            // if(lastDirection == 0)
+            // Будем двигаться. В какую сторону?
+            if(Random.value > 0.5f)            
+                nextAction = 1; //вправо
             else {
-                nextAction = lastDirection * -1;
+                nextAction = -1; //влево
             }
         }
         else 
         {
-            nextAction = 0;
+            nextAction = 0; // стоим на месте
         }
 
         if(nextAction !=0)
@@ -118,6 +122,8 @@ public class SpitterAI : EnemyBase
     {
         
         Vector3 moveVelocity = Vector3.zero;
+        //float oldDir = lastDirection;
+        bool oldFacingRight = facingRight; //сохраним направление, чтобы флипнуть слизня если надо
         switch(activeState)
         {
             // idle
@@ -134,20 +140,27 @@ public class SpitterAI : EnemyBase
                     // Set direction         
                     if (nextWaypoint > transform.position.x)
                     {
-                        lastDirection = 1;
-                        activeState = 1;                    
+                        //lastDirection = 1;
+                        facingRight = true;
+                        activeState = 1;                                            
                     }
                     else if (nextWaypoint < transform.position.x)
                     {
-                        lastDirection = -1;                    
+                        //lastDirection = -1;
+                        facingRight = false;                    
                         activeState = 1;
+                        
                     }
                     else 
                     {
-                        lastDirection = 0;
+                        // lastDirection = 0;
                         activeState = 0;
                     }
+                    // если направление поменялось - повернться
+                    if(facingRight != oldFacingRight)
+                        transform.Rotate(0f,180f,0f);
                 }
+                
             break;
 
             // move only in certain states (patrol, see range)
@@ -162,13 +175,18 @@ public class SpitterAI : EnemyBase
                 else 
                 {
                     // set moving direction vector                     
-                    if(lastDirection == 1)
+                    //if(lastDirection == 1)
+                    
+                    
+                    if(facingRight)
                         moveVelocity = Vector3.right;
-                    else if(lastDirection == -1)
+                    //else if(lastDirection == -1)
+                    else
                         moveVelocity = Vector3.left;
-
-                    // turn around 
-                    transform.localScale = new Vector3(lastDirection*-1, transform.localScale.y, transform.localScale.z);
+                    
+                    //moveVelocity = Vector3.right;
+                    // transform.localScale = new Vector3(lastDirection*-1, transform.localScale.y, transform.localScale.z);
+                    
 
                     // move
                     transform.position += moveVelocity * movePower * Time.deltaTime;
@@ -208,8 +226,26 @@ public class SpitterAI : EnemyBase
     
     void castSlow()
     {
-        Debug.Log("Casting slow ");
-        Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
+        
+        GameObject obj = Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
+        
+        //SlowBall.GetComponent<SlowBall>().setTarget(target.transform.position);
+        obj.SendMessage("setTarget", target.transform.position);
+        /*
+        Vector3 vv = (target.transform.position - ShootingPosition.transform.position).normalized;
+        Vector2 vv2 = new Vector2(vv.x, vv.y);
+        vv2*=SlowBall.GetComponent<SlowBall>().speed;
+        SlowBall.GetComponent<SlowBall>().desiredVelocity = vv2;
+        // Debug.Log("vector2 " + vv2);
+        //SlowBall.GetComponent<Rigidbody2D>().velocity = Vector3(target.transform.position - ShootingPosition.transform.position).normalized * SlowBall.GetComponent<SlowBall>().speed;            
+        //SlowBall.GetComponent<Rigidbody2D>().velocity = vv * SlowBall.GetComponent<SlowBall>().speed;            
+        SlowBall.GetComponent<Rigidbody2D>().velocity = vv2;            
+        // Debug.Log("speed " + SlowBall.GetComponent<SlowBall>().speed);
+        // Debug.Log("speed " + vv);
+        //Debug.Log(target.transform.position);
+        //Debug.Log(ShootingPosition.transform.position);
+        Debug.Log("Slowball casted with " + SlowBall.GetComponent<Rigidbody2D>().velocity);
+        */
     }
 
     // check if there are any enemies withing seeing range

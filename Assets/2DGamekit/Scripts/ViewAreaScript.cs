@@ -23,6 +23,7 @@ public class ViewAreaScript : MonoBehaviour
         if(lm == (lm | (1 << other.gameObject.layer)))
         {
             // raycast to touching object to check if it behind the walls             
+            Debug.Log("Player detected at " + other.transform.position.x);
             parentScript.ObjectDetected(other);       
         }
         
