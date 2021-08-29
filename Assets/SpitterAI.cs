@@ -70,6 +70,9 @@ public class SpitterAI : EnemyBase
     //private Transform target; // chase and attack target
     private GameObject target; // chase and attack target
 
+    private BottomWallCheckScript bottomWallCheck;
+    private BottomWallCheckScript topWallCheck;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,14 +87,23 @@ public class SpitterAI : EnemyBase
         nextWaypoint = GetNextPosition();
         lastStateTime = Time.time;
         spellCastLastTime = 0;
+
+        bottomWallCheck = transform.Find("BottomWallCheck").GetComponent<BottomWallCheckScript>();
+        topWallCheck = transform.Find("TopWallCheck").GetComponent<BottomWallCheckScript>();
     }
 
     // Get next idle action: stand still or go 
-    float GetNextPosition()
+    float GetNextPosition(int dir = 0)
     {        
         int nextAction = 0; // 0 - stay still, -1 go left, 1 go right        
-        // Should I stay or should I go?
-        if(Random.value > 0.01f)
+        
+        // Если направление уже задано
+        if(dir != 0)        
+        {
+            nextAction = dir;
+        }
+        // Should I stay or should I go?        
+        else if(Random.value > 0.01f)
         {
             // if(lastDirection == 0)
             // Будем двигаться. В какую сторону?
@@ -189,9 +201,18 @@ public class SpitterAI : EnemyBase
                     //moveVelocity = Vector3.right;
                     // transform.localScale = new Vector3(lastDirection*-1, transform.localScale.y, transform.localScale.z);
                     
-
-                    // move
-                    transform.position += moveVelocity * movePower * Time.deltaTime;
+                    // Перед нами стена?
+                    if(bottomWallCheck.isTouching && topWallCheck.isTouching){
+                        // развернуться
+                        facingRight=!facingRight;
+                        transform.Rotate(0f,180f,0f);                    
+                        nextWaypoint = GetNextPosition(facingRight ? -1 : 1);
+                    }
+                    else 
+                    {
+                        // move
+                        transform.position += moveVelocity * movePower * Time.deltaTime;
+                    }
                 } 
                 break;
             

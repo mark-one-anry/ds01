@@ -14,7 +14,6 @@ public class SlowBall : MonoBehaviour
     private Rigidbody2D targetRB;
     private SimplePlayerController playerController; 
 
-    private bool fireFlag = false;
     protected bool refreshTarget;
     private float sourceMass;
     private float sourceMovePower;

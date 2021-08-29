@@ -1155,6 +1155,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 386819030361594221, guid: 4cae6e891099b1245942dd33ad608eca, type: 3}
     - target: {fileID: 7215293277778218666, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
+      propertyPath: movePower
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215293277778218666, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: SPELL_RANGE
       value: 4.5
       objectReference: {fileID: 0}
@@ -1180,11 +1184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7219407177414550970, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.075783
+      value: -8.64
       objectReference: {fileID: 0}
     - target: {fileID: 7219407177414550970, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3654783
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7219407177414550970, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
       propertyPath: m_LocalPosition.z
