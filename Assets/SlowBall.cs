@@ -8,7 +8,8 @@ public class SlowBall : MonoBehaviour
     public float slowEffect = 3f;
     public float slowTime=3f;
 
-    protected Vector3 slowBalltarget;
+    // protected Vector3 slowBalltarget;
+    protected GameObject slowBalltarget;
     private Rigidbody2D rb;
     private Rigidbody2D targetRB;
     private SimplePlayerController playerController; 
@@ -24,11 +25,14 @@ public class SlowBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        //if(target == default(Vector3))
-        //    Debug.Log("Spitter NO TARGET!");
-        //Vector2 fireDirection = (target.x < transform.position.x ? transform.right*-1 : transform.right);        
-        Vector2 fireDirection = (this.slowBalltarget.x < transform.position.x ? Vector3.left : Vector3.right);        
+        rb = GetComponent<Rigidbody2D>();          
+        // Просто направление в сторону цели
+        //Vector2 fireDirection = (this.slowBalltarget.x < transform.position.x ? Vector3.left : Vector3.right);        
+        //Vector2 fireDirection = (this.slowBalltarget.transform.position.x < transform.position.x ? Vector3.left : Vector3.right);        
+        // Направление в центр масс цели
+        // 
+        targetRB = slowBalltarget.GetComponent<Rigidbody2D>();
+        Vector2 fireDirection = ((new Vector2(slowBalltarget.transform.position.x,slowBalltarget.transform.position.y) + targetRB.centerOfMass) - new Vector2(transform.position.x,transform.position.y)).normalized; 
         //Debug.Log("Casting slowball to " + fireDirection + ", target x = " + slowBalltarget.x + ", spitter position = " + transform.position.x);
         //Debug.Break();
         rb.velocity = fireDirection * speed;
@@ -42,12 +46,14 @@ public class SlowBall : MonoBehaviour
         
     }
 
-    public void setTarget(Vector3 targetNew)
+    //public void setTarget(Vector3 targetNew)
+    public void setTarget(GameObject targetNew)
     {        
         //this.target = targetNew;
-        this.slowBalltarget = new Vector3(targetNew.x,targetNew.y,targetNew.z);
-        refreshTarget = true;        
-        Debug.Log("Slowball got new target:" + targetNew.x + ", target.x = " + this.slowBalltarget.x);
+        //this.slowBalltarget = new Vector3(targetNew.x,targetNew.y,targetNew.z);
+        this.slowBalltarget = targetNew;
+        //refreshTarget = true;        
+        //Debug.Log("Slowball got new target:" + targetNew.x + ", target.x = " + this.slowBalltarget.x);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {   

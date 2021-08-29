@@ -67,7 +67,8 @@ public class SpitterAI : EnemyBase
 
     public GameObject SlowBall; 
 
-    private Transform target; // chase and attack target
+    //private Transform target; // chase and attack target
+    private GameObject target; // chase and attack target
 
     // Start is called before the first frame update
     void Start()
@@ -205,10 +206,12 @@ public class SpitterAI : EnemyBase
                     moveVelocity = Vector3.left;
 
                 transform.position += moveVelocity * chasePower * Time.deltaTime;
-                nextWaypoint = target.position.x; 
+                // nextWaypoint = target.position.x; 
+                nextWaypoint = target.transform.position.x; 
 
                 // check if target with spell range 
-                float dist = Vector3.Distance(transform.position, target.position);
+                //float dist = Vector3.Distance(transform.position, target.position);
+                float dist = Vector3.Distance(transform.position, target.transform.position);
                 if(dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
                 {
                     
@@ -230,7 +233,8 @@ public class SpitterAI : EnemyBase
         GameObject obj = Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
         
         //SlowBall.GetComponent<SlowBall>().setTarget(target.transform.position);
-        obj.SendMessage("setTarget", target.transform.position);
+        //obj.SendMessage("setTarget", target.transform.position);
+        obj.SendMessage("setTarget", target);
         /*
         Vector3 vv = (target.transform.position - ShootingPosition.transform.position).normalized;
         Vector2 vv2 = new Vector2(vv.x, vv.y);
@@ -267,7 +271,8 @@ public class SpitterAI : EnemyBase
         if(activeState == 0 || activeState == 1 || activeState == 2)
         {            
             activeState = 2; // switch to chase state 
-            target = obj.transform; // set target
+            //target = obj.transform; // set target
+            target = obj.gameObject;
             nextWaypoint = obj.transform.position.x;// set waypoint to player 
         }
         // Debug.Log("Chasing player at " + nextWaypoint);     
