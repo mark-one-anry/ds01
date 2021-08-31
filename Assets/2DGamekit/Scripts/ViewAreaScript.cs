@@ -6,13 +6,16 @@ public class ViewAreaScript : MonoBehaviour
 {
     private GameObject parent;
     private Collider2D viewArea;
-    private SpitterAI parentScript; 
+    private SpitterAI parentScript;
+    private int playerPartCount; // количество видимых фрагментов игрока
+
     
     void Start()
     {
         parent = transform.parent.gameObject;        
         viewArea = GetComponent<Collider2D>();
         parentScript = parent.GetComponent<SpitterAI>();
+        playerPartCount = 0;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,6 +27,7 @@ public class ViewAreaScript : MonoBehaviour
         {
             // raycast to touching object to check if it behind the walls             
             Debug.Log("Player detected at " + other.transform.position.x);
+            playerPartCount++;
             parentScript.ObjectDetected(other);       
         }
         
@@ -36,7 +40,9 @@ public class ViewAreaScript : MonoBehaviour
         if(lm == (lm | (1 << other.gameObject.layer)))
         {
             // raycast to touching object to check if it behind the walls             
-            parentScript.ObjectLost(other);       
+            playerPartCount--;
+            if(playerPartCount == 0)
+                parentScript.ObjectLost(other);       
         }
     }
 
