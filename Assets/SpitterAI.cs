@@ -234,7 +234,7 @@ public class SpitterAI : EnemyBase
                 // check if target with spell range 
                 //float dist = Vector3.Distance(transform.position, target.position);
                 float dist = Vector3.Distance(transform.position, target.transform.position);
-                Debug.Log("Distance " + dist);
+                // Debug.Log("Distance " + dist);
                 if(dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
                 {
                     
