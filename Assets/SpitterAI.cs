@@ -15,11 +15,10 @@ public class EnemyBase : MonoBehaviour
     public Transform homePoint; 
     public Transform ShootingPosition;
 
-    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range, -1 - death
+    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - bite, -1 - death
     
     protected int health; 
     protected float spellCastLastTime;
-
     
 
     private Animator objectAnimator; 
@@ -65,13 +64,19 @@ public class SpitterAI : EnemyBase
     private float nextWaypoint; // next point to patrol
     private float lastStateTime;
 
-    public GameObject SlowBall; 
+    public GameObject SlowBall;
+    public float BITE_RANGE = 1;    // расстояние, на котором можно делать кусь 
+    public float BITE_DELAY = 2;    // как часто кусаем (в секундах)
+    public float BITE_POWER = 2;    // сила укуса
 
     //private Transform target; // chase and attack target
     private GameObject target; // chase and attack target
 
     private BottomWallCheckScript bottomWallCheck;
     private BottomWallCheckScript topWallCheck;
+
+    protected GameObject biteTarget;    // цель для Кусь
+    protected float lastBiteTime;       // время последнего Кусь
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +95,8 @@ public class SpitterAI : EnemyBase
 
         bottomWallCheck = transform.Find("BottomWallCheck").GetComponent<BottomWallCheckScript>();
         topWallCheck = transform.Find("TopWallCheck").GetComponent<BottomWallCheckScript>();
+
+        lastBiteTime = 0;
     }
 
     // Get next idle action: stand still or go 
@@ -235,7 +242,17 @@ public class SpitterAI : EnemyBase
                 //float dist = Vector3.Distance(transform.position, target.position);
                 float dist = Vector3.Distance(transform.position, target.transform.position);
                 // Debug.Log("Distance " + dist);
-                if(dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
+
+                // Близко для куся?
+                if (dist <= BITE_RANGE )
+                {
+                    Debug.Log("Ready to bite target");
+                    activeState = 4;
+                    biteTarget = target;
+                }
+                    
+
+                if (dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
                 {
                     
                     castSlow();
@@ -243,6 +260,26 @@ public class SpitterAI : EnemyBase
                 }
 
             break;
+
+            // режим кусь
+            case 4:
+                // когда последний раз кусали?
+                if(Time.time - lastBiteTime >= BITE_DELAY)
+                {
+                    target.SendMessage("hit", BITE_POWER);
+                    health += (int)BITE_POWER;
+                    lastBiteTime = Time.time;
+                    
+                    //transform.position += 1;
+
+
+                }
+               
+                //transform.position = target.transform.position;
+                Vector3 pos = target.transform.position;
+                pos.x -= (float)0.5;
+                transform.position = pos;
+                break;
         }
 
         // anim.SetBool("isRun", true);
@@ -302,8 +339,11 @@ public class SpitterAI : EnemyBase
     }
 
     public void ObjectLost(Collider2D obj)
-    {        
-        activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
-        target = null;
+    {
+        if (activeState == 1 || activeState == 2)
+        {
+            activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
+            target = null;
+        }
     }
 }
