@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 400608724828775086}
   - component: {fileID: 1721941486912697934}
   - component: {fileID: 8982928412707794849}
-  m_Layer: 7
+  m_Layer: 1
   m_Name: TopWallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 7400020783780493653}
   - component: {fileID: 7812677215289988169}
   - component: {fileID: 5804678366310281231}
-  m_Layer: 7
+  m_Layer: 1
   m_Name: FeelArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 247089168839614604}
   - component: {fileID: 2834594294252891042}
   - component: {fileID: 8047518335436094817}
-  m_Layer: 7
+  m_Layer: 1
   m_Name: BottomWallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7218916497163054796}
-  m_Layer: 7
+  m_Layer: 1
   m_Name: ShootingPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,6 +580,9 @@ MonoBehaviour:
   homePoint: {fileID: 0}
   ShootingPosition: {fileID: 7218916497163054796}
   SlowBall: {fileID: 386819030361594221, guid: 4cae6e891099b1245942dd33ad608eca, type: 3}
+  BITE_RANGE: 1
+  BITE_DELAY: 2
+  BITE_POWER: 2
 --- !u!1 &8608590180107880307
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +595,7 @@ GameObject:
   - component: {fileID: 3270676663566420312}
   - component: {fileID: 9208741675152494236}
   - component: {fileID: 5825868959000708680}
-  m_Layer: 7
+  m_Layer: 1
   m_Name: ViewArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

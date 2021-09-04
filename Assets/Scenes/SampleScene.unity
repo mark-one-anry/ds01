@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954903889}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2f324fe0350db144847f8a477e22fcb, type: 3}
   m_Name: 
@@ -1334,6 +1334,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 842918335790769921, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 889884169140167191, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1405,6 +1409,10 @@ PrefabInstance:
     - target: {fileID: 4672081613719434492, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166204744937404711, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5166204744937404715, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_Layer

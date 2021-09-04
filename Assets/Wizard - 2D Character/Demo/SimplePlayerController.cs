@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Для Dictionary
+using System.Collections;
+using System.Collections.Generic;
+
 
 
 public class SimplePlayerController : MonoBehaviour
@@ -25,6 +29,7 @@ public class SimplePlayerController : MonoBehaviour
     // Блок FIREBALL
     public GameObject FireBall;
     public float fireBallCost = 2f;
+    public float FIREBALL_POWER = 3f;
 
     private bool facingDirectionRight;
     // few constants
@@ -38,7 +43,10 @@ public class SimplePlayerController : MonoBehaviour
     private bool slowActive;
     private float slowEndTime;
 
-
+    //protected GameObject[] suckers; // массив сосущих слизней на игроке
+    private int suckersNum; // количество сосущих
+    Dictionary<int, GameObject> suckers = new Dictionary<int, GameObject>();
+    
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +66,9 @@ public class SimplePlayerController : MonoBehaviour
             manaSlider.SetMaxMana(maxMana);
         }
         facingDirectionRight = true;
+
+        suckersNum = 0;
+
     }
 
     private void Update()
@@ -292,9 +303,47 @@ public class SimplePlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            // а не висит ли на нас сосущий?
+            if(suckersNum > 0)
+            {                
+                // выбрать первого
+                int key = 0;
+                foreach (int value in suckers.Keys)
+                {
+                    key = value;
+                    break;
+                }
+                // пнуть его
+                suckers[key].SendMessage("hit", FIREBALL_POWER);
+                // убрать его
+                suckers.Remove(key);
+
+            }
             Instantiate(FireBall, shootingPosition.transform.position, transform.rotation);
             //GetComponent<SimplePlayerController>().cast(fireBallCost);
             cast(fireBallCost);
         }
     }
+
+    public bool addSucker(GameObject newSucker) // Добавить сосущего
+    {
+        // есть ли место для нового сосущего?
+        if (suckersNum >= 10)
+            return false;
+
+        suckers.Add(newSucker.GetHashCode(), newSucker);
+        suckersNum++;
+        //suckers[suckersNum]
+        return true;
+        //suckers.push()
+    }
+
+    public void removeSucker(GameObject newSucker) // Убрать сосущего
+    {
+        suckers.Remove(newSucker.GetHashCode());
+        suckersNum--;        
+    }
+
+    
+
 }

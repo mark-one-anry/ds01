@@ -19,6 +19,7 @@ public class EnemyBase : MonoBehaviour
     
     protected int health; 
     protected float spellCastLastTime;
+
     
 
     private Animator objectAnimator; 
@@ -33,8 +34,8 @@ public class EnemyBase : MonoBehaviour
     {
         Debug.Log("hit by " + dmg);
         health-=dmg;
-        
-        if(health < 0.1f){
+        activeState = 0;
+        if (health < 0.1f){
             Die();
         }
         else 
@@ -78,6 +79,8 @@ public class SpitterAI : EnemyBase
     protected GameObject biteTarget;    // цель для Кусь
     protected float lastBiteTime;       // время последнего Кусь
 
+    private bool isBiting; // уведомили класс игрока, что мы кусаемся
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,7 @@ public class SpitterAI : EnemyBase
         topWallCheck = transform.Find("TopWallCheck").GetComponent<BottomWallCheckScript>();
 
         lastBiteTime = 0;
+        isBiting = false;
     }
 
     // Get next idle action: stand still or go 
@@ -263,16 +267,18 @@ public class SpitterAI : EnemyBase
 
             // режим кусь
             case 4:
+                // уведомить класс игрока, если еще этого не сделали 
+                if(!isBiting)
+                {
+                    target.SendMessage("addSucker", gameObject);
+                    isBiting = true;
+                }
                 // когда последний раз кусали?
                 if(Time.time - lastBiteTime >= BITE_DELAY)
                 {
-                    target.SendMessage("hit", BITE_POWER);
+                    target.SendMessage("hit", BITE_POWER);                    
                     health += (int)BITE_POWER;
                     lastBiteTime = Time.time;
-                    
-                    //transform.position += 1;
-
-
                 }
                
                 //transform.position = target.transform.position;
@@ -288,28 +294,9 @@ public class SpitterAI : EnemyBase
     }
     
     void castSlow()
-    {
-        
+    {        
         GameObject obj = Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
-        
-        //SlowBall.GetComponent<SlowBall>().setTarget(target.transform.position);
-        //obj.SendMessage("setTarget", target.transform.position);
-        obj.SendMessage("setTarget", target);
-        /*
-        Vector3 vv = (target.transform.position - ShootingPosition.transform.position).normalized;
-        Vector2 vv2 = new Vector2(vv.x, vv.y);
-        vv2*=SlowBall.GetComponent<SlowBall>().speed;
-        SlowBall.GetComponent<SlowBall>().desiredVelocity = vv2;
-        // Debug.Log("vector2 " + vv2);
-        //SlowBall.GetComponent<Rigidbody2D>().velocity = Vector3(target.transform.position - ShootingPosition.transform.position).normalized * SlowBall.GetComponent<SlowBall>().speed;            
-        //SlowBall.GetComponent<Rigidbody2D>().velocity = vv * SlowBall.GetComponent<SlowBall>().speed;            
-        SlowBall.GetComponent<Rigidbody2D>().velocity = vv2;            
-        // Debug.Log("speed " + SlowBall.GetComponent<SlowBall>().speed);
-        // Debug.Log("speed " + vv);
-        //Debug.Log(target.transform.position);
-        //Debug.Log(ShootingPosition.transform.position);
-        Debug.Log("Slowball casted with " + SlowBall.GetComponent<Rigidbody2D>().velocity);
-        */
+        obj.SendMessage("setTarget", target);       
     }
 
     // check if there are any enemies withing seeing range
@@ -345,5 +332,15 @@ public class SpitterAI : EnemyBase
             activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
             target = null;
         }
+    }
+
+    public void hit(int dmg)
+    {
+        if (isBiting)
+        {
+            target.SendMessage("removeSucker", gameObject);
+            isBiting = false;
+        }
+        base.hit(dmg);
     }
 }
