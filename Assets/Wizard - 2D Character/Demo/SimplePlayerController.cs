@@ -20,6 +20,12 @@ public class SimplePlayerController : MonoBehaviour
     private int currentMana;
     public ManaBarScript manaSlider;
 
+    public Transform shootingPosition; // точка стрельбы
+    
+    // Блок FIREBALL
+    public GameObject FireBall;
+    public float fireBallCost = 2f;
+
     private bool facingDirectionRight;
     // few constants
     private int ATTACK_COST = 1;
@@ -65,6 +71,7 @@ public class SimplePlayerController : MonoBehaviour
             Jump();
             Run();
             CheckSpellEffects();
+            SpellCasting(); // творение заклинаний
 
         }
         float timeIdle = (Time.time - lastStateTime);
@@ -279,5 +286,15 @@ public class SimplePlayerController : MonoBehaviour
         }
         else
             return false;
+    }
+
+    protected void SpellCasting() // Вызов заклинаний
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Instantiate(FireBall, shootingPosition.transform.position, transform.rotation);
+            //GetComponent<SimplePlayerController>().cast(fireBallCost);
+            cast(fireBallCost);
+        }
     }
 }
