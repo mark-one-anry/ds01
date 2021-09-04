@@ -28,4 +28,9 @@ public class ManaBarScript : MonoBehaviour
             Debug.Log("No Slider attached to ManaBar!");
         }
     }
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.identity;
+    }
 }
