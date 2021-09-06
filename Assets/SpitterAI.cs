@@ -15,7 +15,7 @@ public class EnemyBase : MonoBehaviour
     public Transform homePoint; 
     public Transform ShootingPosition;
 
-    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - bite, -1 - death
+    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - bite, -1 - death, 5 - flee to crystal
     
     protected float health; 
     protected float spellCastLastTime;
@@ -124,7 +124,7 @@ public class SpitterAI : EnemyBase
             nextAction = dir;
         }
         // Should I stay or should I go?        
-        else if(Random.value > 0.01f)
+        else if(Random.value > 0.4f)
         {
             // if(lastDirection == 0)
             // Будем двигаться. В какую сторону?
@@ -137,6 +137,7 @@ public class SpitterAI : EnemyBase
         else 
         {
             nextAction = 0; // стоим на месте
+            lastStateTime = Time.time;
         }
 
         if(nextAction !=0)
@@ -166,7 +167,7 @@ public class SpitterAI : EnemyBase
                 anim.SetBool("isRun", false);
                 // how long are we alredy staying?
                 float timeIdle = (Time.time - lastStateTime);
-                if(timeIdle > 0.2f)
+                if(timeIdle > 0.5f)
                 {
                     // Get next action 
                     nextWaypoint = GetNextPosition();
