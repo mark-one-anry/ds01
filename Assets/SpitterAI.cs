@@ -17,10 +17,10 @@ public class EnemyBase : MonoBehaviour
 
     protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - bite, -1 - death
     
-    protected int health; 
+    protected float health; 
     protected float spellCastLastTime;
 
-    
+    public ManaBarScript manaSlider;
 
     private Animator objectAnimator; 
     // Start is called before the first frame update
@@ -28,6 +28,12 @@ public class EnemyBase : MonoBehaviour
     {
         health = MaxHealth;
         objectAnimator = GetComponent<Animator>();
+
+        // if mana bar is defined - initialize it 
+        if (manaSlider)
+        {
+            manaSlider.SetMaxMana(MaxHealth);
+        }
     }
 
     public void hit(int dmg)
@@ -35,6 +41,10 @@ public class EnemyBase : MonoBehaviour
         Debug.Log("hit by " + dmg);
         health-=dmg;
         activeState = 0;
+
+        // update mana bar
+        manaSlider.SetMana(health);
+
         if (health < 0.1f){
             Die();
         }
@@ -276,9 +286,17 @@ public class SpitterAI : EnemyBase
                 // когда последний раз кусали?
                 if(Time.time - lastBiteTime >= BITE_DELAY)
                 {
-                    target.SendMessage("hit", BITE_POWER);                    
-                    health += (int)BITE_POWER;
+                    target.SendMessage("hit", BITE_POWER);
+                    if (health < MaxHealth)
+                    {
+                        health += (float)BITE_POWER;
+                    }
+                    health = health > MaxHealth ? MaxHealth : health;   // не превышать максимального запаса
+
                     lastBiteTime = Time.time;
+
+                    // update mana bar
+                    manaSlider.SetMana(health);
                 }
                
                 //transform.position = target.transform.position;

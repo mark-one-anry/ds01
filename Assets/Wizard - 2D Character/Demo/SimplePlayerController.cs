@@ -19,9 +19,9 @@ public class SimplePlayerController : MonoBehaviour
     bool isJumping = false;
     private bool alive = true;
 
-    public int maxMana = 30;
+    public float maxMana = 30;
         
-    private int currentMana;
+    private float currentMana;
     public ManaBarScript manaSlider;
 
     public Transform shootingPosition; // точка стрельбы
@@ -248,7 +248,7 @@ public class SimplePlayerController : MonoBehaviour
 
     public void hit(float dmg)
     {
-        currentMana-=(int)dmg;
+        currentMana-=(float)dmg;
         manaSlider.SetMana(currentMana);
         anim.SetTrigger("hurt");
     }
@@ -256,7 +256,7 @@ public class SimplePlayerController : MonoBehaviour
 
     public void cast(float spellcost)
     {
-        currentMana-=(int)spellcost;
+        currentMana-=(float)spellcost;
         manaSlider.SetMana(currentMana);
         anim.SetTrigger("attack");
     }

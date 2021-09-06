@@ -9,12 +9,12 @@ public class ManaBarScript : MonoBehaviour
 
     
 
-    public void SetMana(int mana)
+    public void SetMana(float mana)
     {
         slider.value = mana;
     }
 
-    public void SetMaxMana(int maxMana)
+    public void SetMaxMana(float maxMana)
     {
         slider.maxValue = maxMana;
         slider.value = maxMana;

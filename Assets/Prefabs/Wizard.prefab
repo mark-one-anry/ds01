@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -539,6 +539,7 @@ MonoBehaviour:
   shootingPosition: {fileID: 842918335790769921}
   FireBall: {fileID: 1373123448411363334, guid: a4ebfd49f1d1ed441aec956f2ca6f891, type: 3}
   fireBallCost: 2
+  FIREBALL_POWER: 3
 --- !u!1001 &9172466853739869624
 PrefabInstance:
   m_ObjectHideFlags: 0
