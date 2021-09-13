@@ -16,8 +16,12 @@ public class ManaBarScript : MonoBehaviour
 
     public void SetMaxMana(float maxMana)
     {
-        slider.maxValue = maxMana;
-        slider.value = maxMana;
+        if (slider == null)
+            slider = GetComponent<Slider>();
+        if (slider != null) { 
+            slider.maxValue = maxMana;
+            slider.value = maxMana;
+        }
     }
 
     void Start()
