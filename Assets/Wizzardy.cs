@@ -208,6 +208,10 @@ public class Wizzardy : MonoBehaviour
 	// Casting complete. Check 
 	void EndSpellSession()
     {
+		// Последний символ учитываем без ЛКМ
+		if (drawedSignsCount < Constants.MAX_SIGN_COUNT){
+			GenstureComplete();
+		}
 		// Debug mode - save genstures to file
 		if (saveGenstures)
 		{
