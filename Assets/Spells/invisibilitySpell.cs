@@ -42,8 +42,32 @@ public class invisibilitySpell : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.I) && !invisible)
+        if(Input.GetKeyDown(KeyCode.I) /*&& !invisible*/)
 
+        {
+            MakeMeInvisible();
+            /*
+            invisible = true;
+            GetComponent<SimplePlayerController>().cast(spellcost);
+            activationTime = 0;
+            foreach(SpriteRenderer cc in WizRender)
+            {
+                col = cc.color;
+                col.a = .2f;
+                cc.color = col;
+            }
+            */
+
+        }
+    }
+
+    public bool isInvisible()
+    {
+        return invisible;
+    }
+
+    public void MakeMeInvisible(){
+        if(!invisible)
         {
             invisible = true;
             GetComponent<SimplePlayerController>().cast(spellcost);
@@ -55,11 +79,6 @@ public class invisibilitySpell : MonoBehaviour
                 cc.color = col;
             }
 
-        }
-    }
-
-    public bool isInvisible()
-    {
-        return invisible;
+        }        
     }
 }

@@ -342,4 +342,30 @@ public class SimplePlayerController : MonoBehaviour
         suckers.Remove(newSucker.GetHashCode());
         suckersNum--;        
     }
+
+    public void CastFireball(){
+        // а не висит ли на нас сосущий?
+        if(suckersNum > 0)
+        {                
+            // выбрать первого
+            int key = 0;
+            foreach (int value in suckers.Keys)
+            {
+                key = value;
+                break;
+            }
+            // пнуть его
+            suckers[key].SendMessage("hit", FIREBALL_POWER);
+            // убрать его
+            suckers.Remove(key);
+
+        }
+        Instantiate(FireBall, shootingPosition.transform.position, transform.rotation);
+        //GetComponent<SimplePlayerController>().cast(fireBallCost);
+        cast(fireBallCost);
+    }
+
+    public void CastInisibility(){
+        gameObject.GetComponent<invisibilitySpell>().MakeMeInvisible();
+    }
 }

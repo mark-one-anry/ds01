@@ -76,6 +76,7 @@ public class Wizzardy : MonoBehaviour
 
 	public Transform FirePoint;
 	public GameObject Fireball;
+	public SimplePlayerController PlayerController;
 
 	private int[] drawedSigns;
 	private int drawedSignsCount = 0;
@@ -249,10 +250,23 @@ public class Wizzardy : MonoBehaviour
 		# 0 - волна
 		*/
 
-		// 1 и 3 - запустить файрболл
+		// 1 - запустить файрболл
+		if (drawedSignsCount == 1 && drawedSigns[0] == 1 /*&& drawedSigns[1] == 3*/) {
+			//Instantiate(Fireball, FirePoint.position, FirePoint.rotation);
+			PlayerController.CastFireball();
+		}
+
+		// 3 - невидимость
+		else if (drawedSignsCount == 1 && drawedSigns[0] == 3 /*&& drawedSigns[1] == 3*/) {
+			//Instantiate(Fireball, FirePoint.position, FirePoint.rotation);
+			PlayerController.CastInisibility();
+		}
+		
+		/*
 		if (drawedSignsCount == 2 && drawedSigns[0] == 1 && drawedSigns[1] == 3) {
 			Instantiate(Fireball, FirePoint.position, FirePoint.rotation);
 		}
+		*/
 	}
 
 	/*void FixedUpdate()
