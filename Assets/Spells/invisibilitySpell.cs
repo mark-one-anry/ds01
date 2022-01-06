@@ -10,7 +10,7 @@ public class invisibilitySpell : MonoBehaviour
     private float activationTime;
     private bool invisible;
     public float spellcost = 5f;
-
+    // IDictionary<string, MonoBehaviour> subscribers = new Dictionary<string, MonoBehaviour>();
 
     void Start()
     {

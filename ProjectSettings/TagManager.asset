@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Fire
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -12,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Enemy
-  - Exit
-  - Wall
-  - Crystal
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
