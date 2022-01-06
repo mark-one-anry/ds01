@@ -13,12 +13,14 @@ public class Spawner : MonoBehaviour
     private float timer;
     private bool CanSpawn;
     private Transform enemy;
+    private LayerMask PlayerLayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = TimeToSpawn;
+        timer = 0;
         CanSpawn = false;
+        PlayerLayer = LayerMask.GetMask("Player");
 
     }
 
@@ -38,9 +40,10 @@ public class Spawner : MonoBehaviour
                 CanSpawn = false;
             }
 
-            Collider2D coll = Physics2D.OverlapCircle(transform.position, RadiusSpawn, EnemyLayer);
-            if (coll is null) {CanSpawn = true;}
-            else {CanSpawn = false;}
+            Collider2D collEnemy = Physics2D.OverlapCircle(transform.position, RadiusSpawn + 3, EnemyLayer);
+            Collider2D collPlayer = Physics2D.OverlapCircle(transform.position, RadiusSpawn - 1, PlayerLayer);
+            if (collEnemy is null && collPlayer is null) { CanSpawn = true;}
+            else {CanSpawn = false;} 
                
 
  

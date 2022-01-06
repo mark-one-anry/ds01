@@ -10,6 +10,7 @@ public class invisibilitySpell : MonoBehaviour
     private float activationTime;
     private bool invisible;
     public float spellcost = 5f;
+    private float timeinvise = 5;
     // IDictionary<string, MonoBehaviour> subscribers = new Dictionary<string, MonoBehaviour>();
 
     void Start()
@@ -30,7 +31,7 @@ public class invisibilitySpell : MonoBehaviour
     void Update()
     {
         activationTime += Time.deltaTime;
-        if(invisible && activationTime >=3)
+        if(invisible && activationTime >= timeinvise)
         {
             invisible = false;
             foreach(SpriteRenderer cc in WizRender)

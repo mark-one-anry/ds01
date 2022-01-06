@@ -98,9 +98,10 @@ public class SimplePlayerController : MonoBehaviour
         anim.SetBool("isJump", false);
         LayerMask lm = LayerMask.GetMask("Exit");
         if(lm == (lm | (1 << other.gameObject.layer)))
-        { 
-//exit from level
-            SceneManager.LoadScene("Assets/Scenes/SceneVictory",LoadSceneMode.Single);  
+        {
+            //exit from level
+            SceneManager.LoadScene("SceneVictory");
+            //SceneManager.LoadScene("Assets/Scenes/SceneVictory",LoadSceneMode.Single);  
         }
 
         lm = LayerMask.GetMask("Crystal");
