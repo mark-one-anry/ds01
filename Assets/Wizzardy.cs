@@ -255,7 +255,7 @@ public class Wizzardy : MonoBehaviour
 		*/
 
 		// 1 - запустить файрболл
-		if (drawedSignsCount == 1 && drawedSigns[0] == 1 /*&& drawedSigns[1] == 3*/) {
+		if (drawedSignsCount == 1 && drawedSigns[0] == 4 /*&& drawedSigns[1] == 3*/) {
 			//Instantiate(Fireball, FirePoint.position, FirePoint.rotation);
 			PlayerController.CastFireball();
 		}
