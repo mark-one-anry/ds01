@@ -855,11 +855,11 @@ PrefabInstance:
       objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: TimeToSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyLayer.m_Bits
@@ -936,11 +936,11 @@ PrefabInstance:
       objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: TimeToSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyLayer.m_Bits
@@ -1889,11 +1889,11 @@ PrefabInstance:
       objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: TimeToSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyLayer.m_Bits
@@ -2137,11 +2137,11 @@ PrefabInstance:
       objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: TimeToSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyLayer.m_Bits
@@ -4899,11 +4899,11 @@ PrefabInstance:
       objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: TimeToSpawn
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyLayer.m_Bits
