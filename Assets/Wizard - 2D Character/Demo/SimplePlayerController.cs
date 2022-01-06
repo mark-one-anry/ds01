@@ -269,4 +269,9 @@ using UnityEngine.SceneManagement;
                 slowActive = false;
             }
         }
+
+        public bool isInvisible()
+        {
+            return GetComponent<invisibilitySpell>().isInvisible();
+        }
     }

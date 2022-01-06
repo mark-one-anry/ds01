@@ -57,4 +57,9 @@ public class invisibilitySpell : MonoBehaviour
 
         }
     }
+
+    public bool isInvisible()
+    {
+        return invisible;
+    }
 }
