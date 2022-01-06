@@ -852,7 +852,7 @@ PrefabInstance:
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 724151963}
+      objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
       value: 5
@@ -933,7 +933,7 @@ PrefabInstance:
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 724151963}
+      objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
       value: 5
@@ -1764,17 +1764,6 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: -19.21237, y: -0.29750633, z: -0.00005}
     m_Extent: {x: 19.21237, y: 11.1175995, z: 0.00005}
---- !u!114 &724151963 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7215293277778218666, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
-  m_PrefabInstance: {fileID: 1073783318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c01b7920804b9c46961331dfbb19d7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &876878559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1886,7 @@ PrefabInstance:
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 724151963}
+      objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
       value: 5
@@ -2266,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 724151963}
+      objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
       value: 5
@@ -5039,7 +5028,7 @@ PrefabInstance:
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 724151963}
+      objectReference: {fileID: 7216455444986050104, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
     - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: RadiusSpawn
       value: 5

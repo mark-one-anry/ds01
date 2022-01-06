@@ -42,6 +42,10 @@ public class EnemyBase : MonoBehaviour
         {
             manaSlider.SetMaxMana(MaxHealth);
         }
+        else {
+            manaSlider = gameObject.GetComponentInChildren<ManaBarScript>();
+            manaSlider.SetMaxMana(MaxHealth);
+        }
 
         gv = GameObject.Find("GlobalVariables").GetComponent<GlobalVars>();        
   
@@ -393,7 +397,7 @@ public class SpitterAI : EnemyBase
                 {
                     objectAnimator.SetBool("isRun", false);
                     moveVelocity = Vector3.zero;
-                    Debug.Log("Reached crystal for healing");
+                    // Debug.Log("Reached crystal for healing");
                     return;
                 }
 

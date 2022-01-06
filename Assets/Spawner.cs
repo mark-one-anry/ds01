@@ -5,7 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    public EnemyBase EnemyPrefab;
+    //public EnemyBase EnemyPrefab;
+    public GameObject EnemyPrefab;
     public float TimeToSpawn, RadiusSpawn;
     public LayerMask EnemyLayer;
 
@@ -31,7 +32,8 @@ public class Spawner : MonoBehaviour
         if (timer <= 0)
         {
             if (CanSpawn) {
-                EnemyBase Enemy = Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
+                //EnemyBase Enemy = Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
+                GameObject Enemy = Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
                 timer = TimeToSpawn;
                 CanSpawn = false;
             }
