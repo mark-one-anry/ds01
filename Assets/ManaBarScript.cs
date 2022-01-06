@@ -9,15 +9,19 @@ public class ManaBarScript : MonoBehaviour
 
     
 
-    public void SetMana(int mana)
+    public void SetMana(float mana)
     {
         slider.value = mana;
     }
 
-    public void SetMaxMana(int maxMana)
+    public void SetMaxMana(float maxMana)
     {
-        slider.maxValue = maxMana;
-        slider.value = maxMana;
+        if (slider == null)
+            slider = GetComponent<Slider>();
+        if (slider != null) { 
+            slider.maxValue = maxMana;
+            slider.value = maxMana;
+        }
     }
 
     void Start()
@@ -27,5 +31,10 @@ public class ManaBarScript : MonoBehaviour
         {
             Debug.Log("No Slider attached to ManaBar!");
         }
+    }
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.identity;
     }
 }

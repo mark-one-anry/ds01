@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 46ecad838a61ac94f9c69f50001e0d44
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 200
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 2"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1991
+      y: 1944
+      width: 649
+      height: 265
+    spriteID: 8b0584a8d0d0d1949a078a1fb5c38afa
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 693, y: 880}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 3"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2386
+      y: 2457
+      width: 613
+      height: 265
+    spriteID: 38cd6fe79b9109149a00cd4f8a73dce0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 439, y: 1393}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2648
+      y: 1944
+      width: 649
+      height: 265
+    spriteID: 5a9283874d8c4dc4caaf093a6b9c256b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1999, y: 880}
+  - name: Mountaint
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3305
+      y: 1944
+      width: 649
+      height: 265
+    spriteID: 68c790e124675cc4d9ed7b6b9e6fe0bc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3305, y: 880}
+  - name: BottomDark
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2224
+      width: 2560
+      height: 115
+    spriteID: 5276149e6c81ee64f80512eec0e78e7d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 899}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 2_1"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 415
+      y: 2457
+      width: 649
+      height: 265
+    spriteID: 87c05b2b3685fe8469acdcd1143e899d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -883, y: 2355}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 3_1"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3007
+      y: 2457
+      width: 613
+      height: 265
+    spriteID: 1ba60d50bc6977840952112d3b6b9ffb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1060, y: 2355}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F_1"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1072
+      y: 2457
+      width: 649
+      height: 265
+    spriteID: 06b2425bf0b7f284f8fb7866d3553863
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 423, y: 2355}
+  - name: Mountaint_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1729
+      y: 2457
+      width: 649
+      height: 265
+    spriteID: 5b5aa950fd511dd459eff0b67340ed7e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1729, y: 2355}
+  - name: BottomDark_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2347
+      width: 2560
+      height: 102
+    spriteID: 57da69071c0cdcb459474151c7ddca7a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2347}
+  - name: "\u0421\u043B\u043E\u0439 5"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2402
+      y: 1452
+      width: 763
+      height: 253
+    spriteID: 000145e503aa49b4f9bea247652909e2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2402, y: 1231}
+  - name: Right Lava Mount Edge
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1075
+      y: 2026
+      width: 77
+      height: 62
+    spriteID: 766c38b70e28b5045944e93c344131f8
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1214, y: 1802}
+  - name: Lava Mountrain 02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3628
+      y: 2457
+      width: 312
+      height: 76
+    spriteID: 9d6ebe2badf34094790e5c7f5e628089
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1643, y: 2233}
+  - name: Left Lava Mount Edge
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1075
+      y: 2118
+      width: 77
+      height: 62
+    spriteID: 4214d6a82cfd7764594e41aba31d0d53
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 232, y: 1894}
+  - name: Lava Mountain
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3628
+      y: 2541
+      width: 312
+      height: 76
+    spriteID: ce25269072d413a4aa72c226e9f05126
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2717, y: 2317}
+  - name: Garbage Mountain
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3173
+      y: 1452
+      width: 763
+      height: 253
+    spriteID: a1820637cff191e40a178c1c89ea7fc5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1950, y: 1229}
+  - name: Column 02 Bottom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1169
+      y: 1452
+      width: 403
+      height: 745
+    spriteID: b183a9ca0c9f02848ac57a70796b6ac4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -436, y: 1218}
+  - name: Column 02 Top
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2457
+      width: 403
+      height: 471
+    spriteID: 7e89b08ca8b732b499bcd805eb5603ae
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1601, y: 1488}
+  - name: Column Bottom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1580
+      y: 1452
+      width: 403
+      height: 745
+    spriteID: f51cd27b4a964cc4f8e534142f945c33
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 893, y: 1231}
+  - name: Column Top
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1991
+      y: 1452
+      width: 403
+      height: 484
+    spriteID: b557c216575e9434fa5a3b8b7a203500
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1304, y: 496}
+  - name: Far Column Top 03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 599
+      y: 1452
+      width: 562
+      height: 566
+    spriteID: 775bd86299bc3774c88792a6f9b7367a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1399, y: 578}
+  - name: Far Column Bottom 03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1452
+      width: 587
+      height: 764
+    spriteID: addb297df9b36cf48a3982e869f499b4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1969, y: 1274}
+  - name: Far Column Top 02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2572
+      y: 776
+      width: 672
+      height: 566
+    spriteID: 831470d615a0a0a46af1c6d42b082c42
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2427, y: -98}
+  - name: Far Column Bottom 02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2572
+      y: 4
+      width: 697
+      height: 764
+    spriteID: 68a9b99c71d8dde4292e48c4085770c3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2452, y: -174}
+  - name: Far Column Top
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3277
+      y: 776
+      width: 672
+      height: 566
+    spriteID: cae978bdef6fc604eb71a1d85035471a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2302, y: -98}
+  - name: Far Column Bottom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3277
+      y: 4
+      width: 697
+      height: 764
+    spriteID: c491d3dabeb98254083be7bf2752a905
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2327, y: -174}
+  - name: Lava 06
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3628
+      y: 2625
+      width: 220
+      height: 84
+    spriteID: 5ab74411fecd0d04bbcc445d7b1bf4f2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1288, y: 2485}
+  - name: Lava 05
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 599
+      y: 2026
+      width: 468
+      height: 84
+    spriteID: e1d7eb12fbff17d4bac3ba9f6e2f6a21
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1273, y: 1886}
+  - name: Lava 04
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 599
+      y: 2118
+      width: 468
+      height: 84
+    spriteID: 8f19428724d974d41ac7c99e3cda7379
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -805, y: 1978}
+  - name: Lava 03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2386
+      y: 2730
+      width: 468
+      height: 84
+    spriteID: 1fae81f05f6a3164395397f7cf24e6d3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1450, y: 2590}
+  - name: Lava 02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2386
+      y: 2822
+      width: 468
+      height: 84
+    spriteID: 63751ad8cf17dba4488d7dc8ec4bf9ef
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1918, y: 2682}
+  - name: Lava 01
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 415
+      y: 2730
+      width: 468
+      height: 84
+    spriteID: 75dd9ef7d9179044d915898944bbe429
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 415, y: 2590}
+  - name: FarBack
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 2560
+      height: 1440
+    spriteID: b96f5ea4969172d4e9a5f5e764973b8a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Windows Store Apps
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 2048
+  importedTextureHeight: 2048
+  documentSize: {x: 2560, y: 1440}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 4096
+  textureActualHeight: 4096
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: "Top Mountains \u043A\u043E\u043F\u0438\u044F"
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 17
+    mosaicPosition: {x: 0, y: 0}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 2"
+    spriteName: "Mountaint \u043A\u043E\u043F\u0438\u044F 2"
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 8b0584a8d0d0d1949a078a1fb5c38afa
+    layerID: 16
+    mosaicPosition: {x: 1991, y: 1944}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 3"
+    spriteName: "Mountaint \u043A\u043E\u043F\u0438\u044F 3"
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 38cd6fe79b9109149a00cd4f8a73dce0
+    layerID: 15
+    mosaicPosition: {x: 2386, y: 2457}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F"
+    spriteName: "Mountaint \u043A\u043E\u043F\u0438\u044F"
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 5a9283874d8c4dc4caaf093a6b9c256b
+    layerID: 14
+    mosaicPosition: {x: 2648, y: 1944}
+  - name: Mountaint
+    spriteName: Mountaint
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 68c790e124675cc4d9ed7b6b9e6fe0bc
+    layerID: 13
+    mosaicPosition: {x: 3305, y: 1944}
+  - name: BottomDark
+    spriteName: BottomDark
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 5276149e6c81ee64f80512eec0e78e7d
+    layerID: 12
+    mosaicPosition: {x: 4, y: 2224}
+  - name: Bottom Mountains
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 9
+    mosaicPosition: {x: 0, y: 0}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 2"
+    spriteName: "Mountaint \u043A\u043E\u043F\u0438\u044F 2_1"
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 87c05b2b3685fe8469acdcd1143e899d
+    layerID: 7
+    mosaicPosition: {x: 415, y: 2457}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F 3"
+    spriteName: "Mountaint \u043A\u043E\u043F\u0438\u044F 3_1"
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 1ba60d50bc6977840952112d3b6b9ffb
+    layerID: 8
+    mosaicPosition: {x: 3007, y: 2457}
+  - name: "Mountaint \u043A\u043E\u043F\u0438\u044F"
+    spriteName: "Mountaint \u043A\u043E\u043F\u0438\u044F_1"
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 06b2425bf0b7f284f8fb7866d3553863
+    layerID: 6
+    mosaicPosition: {x: 1072, y: 2457}
+  - name: Mountaint
+    spriteName: Mountaint_1
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 5b5aa950fd511dd459eff0b67340ed7e
+    layerID: 5
+    mosaicPosition: {x: 1729, y: 2457}
+  - name: BottomDark
+    spriteName: BottomDark_1
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 57da69071c0cdcb459474151c7ddca7a
+    layerID: 4
+    mosaicPosition: {x: 4, y: 2347}
+  - name: "Lava Mountains \u043A\u043E\u043F\u0438\u044F"
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 53
+    mosaicPosition: {x: 0, y: 0}
+  - name: "\u0421\u043B\u043E\u0439 5"
+    spriteName: "\u0421\u043B\u043E\u0439 5"
+    isGroup: 0
+    parentIndex: 12
+    spriteID: 000145e503aa49b4f9bea247652909e2
+    layerID: 48
+    mosaicPosition: {x: 2402, y: 1452}
+  - name: Lava Mountains
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 28
+    mosaicPosition: {x: 0, y: 0}
+  - name: Right Lava Mount Edge
+    spriteName: Right Lava Mount Edge
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 766c38b70e28b5045944e93c344131f8
+    layerID: 34
+    mosaicPosition: {x: 1075, y: 2026}
+  - name: Lava Mountrain 02
+    spriteName: Lava Mountrain 02
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 9d6ebe2badf34094790e5c7f5e628089
+    layerID: 32
+    mosaicPosition: {x: 3628, y: 2457}
+  - name: Left Lava Mount Edge
+    spriteName: Left Lava Mount Edge
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 4214d6a82cfd7764594e41aba31d0d53
+    layerID: 33
+    mosaicPosition: {x: 1075, y: 2118}
+  - name: Lava Mountain
+    spriteName: Lava Mountain
+    isGroup: 0
+    parentIndex: 14
+    spriteID: ce25269072d413a4aa72c226e9f05126
+    layerID: 27
+    mosaicPosition: {x: 3628, y: 2541}
+  - name: Garbage Mountain
+    spriteName: Garbage Mountain
+    isGroup: 0
+    parentIndex: 14
+    spriteID: a1820637cff191e40a178c1c89ea7fc5
+    layerID: 31
+    mosaicPosition: {x: 3173, y: 1452}
+  - name: Columns
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 38
+    mosaicPosition: {x: 0, y: 0}
+  - name: Column 02 Bottom
+    spriteName: Column 02 Bottom
+    isGroup: 0
+    parentIndex: 20
+    spriteID: b183a9ca0c9f02848ac57a70796b6ac4
+    layerID: 46
+    mosaicPosition: {x: 1169, y: 1452}
+  - name: Column 02 Top
+    spriteName: Column 02 Top
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 7e89b08ca8b732b499bcd805eb5603ae
+    layerID: 45
+    mosaicPosition: {x: 4, y: 2457}
+  - name: Column Bottom
+    spriteName: Column Bottom
+    isGroup: 0
+    parentIndex: 20
+    spriteID: f51cd27b4a964cc4f8e534142f945c33
+    layerID: 35
+    mosaicPosition: {x: 1580, y: 1452}
+  - name: Column Top
+    spriteName: Column Top
+    isGroup: 0
+    parentIndex: 20
+    spriteID: b557c216575e9434fa5a3b8b7a203500
+    layerID: 40
+    mosaicPosition: {x: 1991, y: 1452}
+  - name: Far Columns
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 54
+    mosaicPosition: {x: 0, y: 0}
+  - name: Far Column Top 03
+    spriteName: Far Column Top 03
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 775bd86299bc3774c88792a6f9b7367a
+    layerID: 59
+    mosaicPosition: {x: 599, y: 1452}
+  - name: Far Column Bottom 03
+    spriteName: Far Column Bottom 03
+    isGroup: 0
+    parentIndex: 25
+    spriteID: addb297df9b36cf48a3982e869f499b4
+    layerID: 58
+    mosaicPosition: {x: 4, y: 1452}
+  - name: Far Column Top 02
+    spriteName: Far Column Top 02
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 831470d615a0a0a46af1c6d42b082c42
+    layerID: 57
+    mosaicPosition: {x: 2572, y: 776}
+  - name: Far Column Bottom 02
+    spriteName: Far Column Bottom 02
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 68a9b99c71d8dde4292e48c4085770c3
+    layerID: 56
+    mosaicPosition: {x: 2572, y: 4}
+  - name: Far Column Top
+    spriteName: Far Column Top
+    isGroup: 0
+    parentIndex: 25
+    spriteID: cae978bdef6fc604eb71a1d85035471a
+    layerID: 42
+    mosaicPosition: {x: 3277, y: 776}
+  - name: Far Column Bottom
+    spriteName: Far Column Bottom
+    isGroup: 0
+    parentIndex: 25
+    spriteID: c491d3dabeb98254083be7bf2752a905
+    layerID: 41
+    mosaicPosition: {x: 3277, y: 4}
+  - name: Lava
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 24
+    mosaicPosition: {x: 0, y: 0}
+  - name: Lava 06
+    spriteName: Lava 06
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 5ab74411fecd0d04bbcc445d7b1bf4f2
+    layerID: 23
+    mosaicPosition: {x: 3628, y: 2625}
+  - name: Lava 05
+    spriteName: Lava 05
+    isGroup: 0
+    parentIndex: 32
+    spriteID: e1d7eb12fbff17d4bac3ba9f6e2f6a21
+    layerID: 22
+    mosaicPosition: {x: 599, y: 2026}
+  - name: Lava 04
+    spriteName: Lava 04
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 8f19428724d974d41ac7c99e3cda7379
+    layerID: 21
+    mosaicPosition: {x: 599, y: 2118}
+  - name: Lava 03
+    spriteName: Lava 03
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 1fae81f05f6a3164395397f7cf24e6d3
+    layerID: 20
+    mosaicPosition: {x: 2386, y: 2730}
+  - name: Lava 02
+    spriteName: Lava 02
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 63751ad8cf17dba4488d7dc8ec4bf9ef
+    layerID: 19
+    mosaicPosition: {x: 2386, y: 2822}
+  - name: Lava 01
+    spriteName: Lava 01
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 75dd9ef7d9179044d915898944bbe429
+    layerID: 18
+    mosaicPosition: {x: 415, y: 2730}
+  - name: FarBack
+    spriteName: FarBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b96f5ea4969172d4e9a5f5e764973b8a
+    layerID: 2
+    mosaicPosition: {x: 4, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: LevelTiles Texture
+  prefabAssetName: LevelTiles Prefab
+  spriteLibAssetName: LevelTiles Sprite Lib
+  secondarySpriteTextures: []

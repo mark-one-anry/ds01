@@ -2,40 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+
 public class EnemyBase : MonoBehaviour
 {
     public int MaxHealth = 10;
-    public float movePower = 4f;
+    public float movePower = 2f;
     public float chasePower = 7f;
     public float PATROL_RANGE = 2500f; // distance to patrol
     public float SEE_RANGE = 250f;
     public float SPELL_RANGE = 2.5f;
     public float SPELL_DELAY = 6f;
 
+
+    
+
     public Transform homePoint; 
     public Transform ShootingPosition;
 
-    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - within suck range, -1 - death
+    protected int activeState; // current state 0 - idle 1 - patrol, 2 - see target, 3 - within attack range, 4 - bite, -1 - death, 5 - flee to crystal
     
-    protected int health; 
+    protected float health; 
     protected float spellCastLastTime;
 
-    
+    public ManaBarScript manaSlider;
 
-    private Animator objectAnimator; 
+    protected Animator objectAnimator;
+
+    protected Transform[] manaCrystals;
+    protected GlobalVars gv;
     // Start is called before the first frame update
     protected void Start()
     {
         health = MaxHealth;
         objectAnimator = GetComponent<Animator>();
+
+        // if mana bar is defined - initialize it 
+        if (manaSlider)
+        {
+            manaSlider.SetMaxMana(MaxHealth);
+        }
+
+        gv = GameObject.Find("GlobalVariables").GetComponent<GlobalVars>();        
+  
     }
 
     public void hit(int dmg)
     {
         Debug.Log("hit by " + dmg);
         health-=dmg;
-        
-        if(health < 0.1f){
+        activeState = 0;
+
+        // update mana bar
+        manaSlider.SetMana(health);
+
+        if (health < 0.1f){
             Die();
         }
         else 
@@ -60,49 +81,91 @@ public class SpitterAI : EnemyBase
 
     
     private int lastDirection; // last move direction
+    private bool facingRight; // смотрит ли наш объект направо?
+
     private float nextWaypoint; // next point to patrol
     private float lastStateTime;
 
-    public GameObject SlowBall; 
+    public GameObject SlowBall;
+    public float BITE_RANGE = 1;    // расстояние, на котором можно делать кусь 
+    public float BITE_DELAY = 2;    // как часто кусаем (в секундах)
+    public float BITE_POWER = 2;    // сила укуса
 
-    private Transform target; // chase and attack target
+    protected float FLEE_LIMIT_PCNT =0.4f; // % здоровья при котором враг бежит
+
+    //private Transform target; // chase and attack target
+    private GameObject target; // chase and attack target
+
+    private BottomWallCheckScript bottomWallCheck;
+    private BottomWallCheckScript topWallCheck;
+
+    protected GameObject biteTarget;    // цель для Кусь
+    protected float lastBiteTime;       // время последнего Кусь
+
+    private bool isBiting; // уведомили класс игрока, что мы кусаемся
+    private bool gotFleeCrystal = false; // выбрали ли кристалл для бегства
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
 
         startingPosition = transform.position;
         activeState = 0;
-        lastDirection = 0;
+        // lastDirection = 0;
+        facingRight = false; 
+
         nextWaypoint = GetNextPosition();
         lastStateTime = Time.time;
+        spellCastLastTime = 0;
+
+        bottomWallCheck = transform.Find("BottomWallCheck").GetComponent<BottomWallCheckScript>();
+        topWallCheck = transform.Find("TopWallCheck").GetComponent<BottomWallCheckScript>();
+
+        lastBiteTime = 0;
+        isBiting = false;
+
+        if (gv != null)
+        {
+            manaCrystals = gv.getCrystalArray();
+            Debug.Log("manaCrystals" + manaCrystals);
+        }
+        else {
+            Debug.Log("NO GLOBAL VARIABLES DEFINED!");
+        }
     }
 
     // Get next idle action: stand still or go 
-    float GetNextPosition()
+    float GetNextPosition(int dir = 0)
     {        
         int nextAction = 0; // 0 - stay still, -1 go left, 1 go right        
-        // Should I stay or should I go?
-        if(Random.value > 0.01f)
+        
+        // Если направление уже задано
+        if(dir != 0)        
         {
-            if(lastDirection == 0)
-            {
-                nextAction = 1;
-            }
+            nextAction = dir;
+        }
+        // Should I stay or should I go?        
+        else if(UnityEngine.Random.value > 0.4f)
+        {
+            // if(lastDirection == 0)
+            // Будем двигаться. В какую сторону?
+            if(UnityEngine.Random.value > 0.5f)            
+                nextAction = 1; //вправо
             else {
-                nextAction = lastDirection * -1;
+                nextAction = -1; //влево
             }
         }
         else 
         {
-            nextAction = 0;
+            nextAction = 0; // стоим на месте
+            lastStateTime = Time.time;
         }
 
         if(nextAction !=0)
         {
-            float newX = PATROL_RANGE * nextAction + PATROL_RANGE * Random.value * nextAction + transform.position.x;
+            float newX = PATROL_RANGE * nextAction + PATROL_RANGE * UnityEngine.Random.value * nextAction + transform.position.x;
             //Debug.Log("Spitter: GetNextPosition decided to <" + nextAction + ">. New coordinate " + (newX));
             return newX;
         }
@@ -118,14 +181,16 @@ public class SpitterAI : EnemyBase
     {
         
         Vector3 moveVelocity = Vector3.zero;
+        //float oldDir = lastDirection;
+        bool oldFacingRight = facingRight; //сохраним направление, чтобы флипнуть слизня если надо
         switch(activeState)
         {
             // idle
             case 0:
-                anim.SetBool("isRun", false);
+                objectAnimator.SetBool("isRun", false);
                 // how long are we alredy staying?
                 float timeIdle = (Time.time - lastStateTime);
-                if(timeIdle > 0.2f)
+                if(timeIdle > 0.5f)
                 {
                     // Get next action 
                     nextWaypoint = GetNextPosition();
@@ -134,25 +199,39 @@ public class SpitterAI : EnemyBase
                     // Set direction         
                     if (nextWaypoint > transform.position.x)
                     {
-                        lastDirection = 1;
-                        activeState = 1;                    
+                        //lastDirection = 1;
+                        facingRight = true;
+                        activeState = 1;                                            
                     }
                     else if (nextWaypoint < transform.position.x)
                     {
-                        lastDirection = -1;                    
+                        //lastDirection = -1;
+                        facingRight = false;                    
                         activeState = 1;
+                        
                     }
                     else 
                     {
-                        lastDirection = 0;
+                        // lastDirection = 0;
                         activeState = 0;
                     }
+                    // если направление поменялось - повернться
+                    if(facingRight != oldFacingRight)
+                        transform.Rotate(0f,180f,0f);
                 }
+                
             break;
 
             // move only in certain states (patrol, see range)
             case 1:
-                anim.SetBool("isRun", true);
+                // Если здоровье меньше заданного - бежим лечиться
+                if (health <= MaxHealth * FLEE_LIMIT_PCNT)
+                {
+                    activeState = 5;
+                    break;
+                }
+
+                objectAnimator.SetBool("isRun", true);
                 // has we reached next waypoint?
                 if((Mathf.Abs(transform.position.x - nextWaypoint) < 0.5f)) 
                 {
@@ -162,36 +241,70 @@ public class SpitterAI : EnemyBase
                 else 
                 {
                     // set moving direction vector                     
-                    if(lastDirection == 1)
+                    //if(lastDirection == 1)
+                    
+                    
+                    if(facingRight)
                         moveVelocity = Vector3.right;
-                    else if(lastDirection == -1)
+                    //else if(lastDirection == -1)
+                    else
                         moveVelocity = Vector3.left;
-
-                    // turn around 
-                    transform.localScale = new Vector3(lastDirection*-1, transform.localScale.y, transform.localScale.z);
-
-                    // move
-                    transform.position += moveVelocity * movePower * Time.deltaTime;
+                    
+                    //moveVelocity = Vector3.right;
+                    // transform.localScale = new Vector3(lastDirection*-1, transform.localScale.y, transform.localScale.z);
+                    
+                    // Перед нами стена?
+                    if(bottomWallCheck.isTouching && topWallCheck.isTouching){
+                        // развернуться
+                        facingRight=!facingRight;
+                        transform.Rotate(0f,180f,0f);                    
+                        nextWaypoint = GetNextPosition(facingRight ? -1 : 1);
+                    }
+                    else 
+                    {
+                        // move
+                        transform.position += moveVelocity * movePower * Time.deltaTime;
+                    }
                 } 
                 break;
-            
+
+                
             // chasing mode 
             case 2:
-                anim.SetBool("isRun", true);
+                objectAnimator.SetBool("isRun", true);
+                
+                // Если здоровье меньше заданного - бежим лечиться
+                if (health <= MaxHealth * FLEE_LIMIT_PCNT) {
+                    activeState = 5;
+                    break;
+                }
                 // check if we reach casting range 
                 // check if we reach bite range 
                 // move to waypoint 
-                if(nextWaypoint > transform.position.x)
+                if (nextWaypoint > transform.position.x)
                     moveVelocity = Vector3.right;
                 else 
                     moveVelocity = Vector3.left;
 
                 transform.position += moveVelocity * chasePower * Time.deltaTime;
-                nextWaypoint = target.position.x; 
+                // nextWaypoint = target.position.x; 
+                nextWaypoint = target.transform.position.x; 
 
                 // check if target with spell range 
-                float dist = Vector3.Distance(transform.position, target.position);
-                if(dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
+                //float dist = Vector3.Distance(transform.position, target.position);
+                float dist = Vector3.Distance(transform.position, target.transform.position);
+                // Debug.Log("Distance " + dist);
+
+                // Близко для куся?
+                if (dist <= BITE_RANGE )
+                {
+                    Debug.Log("Ready to bite target");
+                    activeState = 4;
+                    biteTarget = target;
+                }
+                    
+
+                if (dist <= SPELL_RANGE && (Time.time-spellCastLastTime)>SPELL_DELAY)
                 {
                     
                     castSlow();
@@ -199,17 +312,112 @@ public class SpitterAI : EnemyBase
                 }
 
             break;
+
+            // режим кусь
+            case 4:
+
+                // Если здоровье меньше заданного - бежим лечиться
+                if (health <= MaxHealth * FLEE_LIMIT_PCNT)
+                {
+                    activeState = 5;
+                    break;
+                }
+
+                // уведомить класс игрока, если еще этого не сделали 
+                if (!isBiting)
+                {
+                    target.SendMessage("addSucker", gameObject);
+                    isBiting = true;
+                }
+                // когда последний раз кусали?
+                if(Time.time - lastBiteTime >= BITE_DELAY)
+                {
+                    target.SendMessage("hit", BITE_POWER);
+                    if (health < MaxHealth)
+                    {
+                        health += (float)BITE_POWER;
+                    }
+                    health = health > MaxHealth ? MaxHealth : health;   // не превышать максимального запаса
+
+                    lastBiteTime = Time.time;
+
+                    // update mana bar
+                    manaSlider.SetMana(health);
+                }
+               
+                //transform.position = target.transform.position;
+                Vector3 pos = target.transform.position;
+                pos.x -= (float)0.5;    // чтобы не пинать игрока слизнь сидит немного левее
+                transform.position = pos;
+                break;
+
+            // бежим лечиться
+            case 5:
+                // Если здоровье выше двух лимитов - можно перестать лечиться
+                if (health >= MaxHealth * FLEE_LIMIT_PCNT * 2 || health >= MaxHealth) {
+                    activeState = 1;
+                    gotFleeCrystal = false;
+                    break;
+                }
+
+                // найти кристалл для лечения 
+                if (!gotFleeCrystal)
+                {
+                    // сортируем массив кристаллов по текущему расстоянию до них 
+                    /*
+                    Func<Transform, Transform, int> distSort = (e1, e2) =>
+                    {
+                        float d1 = Vector3.Distance(transform.position, e1.position);
+                        float d2 = Vector3.Distance(transform.position, e2.position);
+                        return d1 < d2 ? -1 : (d1 > d2 ? 1 : 0);
+                    };
+                    //Array.Sort(manaCrystals, distSort);
+                    */
+                    if(manaCrystals == null)
+                        manaCrystals = gv.getCrystalArray();
+                    if (manaCrystals==null || manaCrystals.Length == 0) {
+                        Debug.Log("No mana crystals");
+                        return;
+                    }
+
+                    distanceSort sorter = new distanceSort(transform.position);
+                    Array.Sort(manaCrystals, sorter);
+                    // TODO: нужно проверить достижимость через Pathfinder 
+                    target = manaCrystals[0].gameObject;
+                    Debug.Log("Crystal to flee is located at " + target.transform.position.x + " / " + target.transform.position.y);
+                    gotFleeCrystal = true;
+                }
+
+                // находимся ли мы в зоне кристалла?
+                if(Vector3.Distance(transform.position, target.transform.position) <= 0.5f)
+                {
+                    objectAnimator.SetBool("isRun", false);
+                    moveVelocity = Vector3.zero;
+                    Debug.Log("Reached crystal for healing");
+                    return;
+                }
+
+                objectAnimator.SetBool("isRun", true);
+                if (nextWaypoint > transform.position.x)
+                    moveVelocity = Vector3.right;
+                else
+                    moveVelocity = Vector3.left;
+
+                transform.position += moveVelocity * chasePower * Time.deltaTime;
+
+
+                break;
         }
 
-        // anim.SetBool("isRun", true);
-            
+        // objectAnimator.SetBool("isRun", true);
+
 
     }
-    
+
     void castSlow()
-    {
-        Debug.Log("Casting slow ");
-        Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
+    {        
+        GameObject obj = Instantiate(SlowBall, ShootingPosition.transform.position, transform.rotation);
+        obj.SendMessage("setTarget", target);       
     }
 
     // check if there are any enemies withing seeing range
@@ -231,15 +439,45 @@ public class SpitterAI : EnemyBase
         if(activeState == 0 || activeState == 1 || activeState == 2)
         {            
             activeState = 2; // switch to chase state 
-            target = obj.transform; // set target
+            //target = obj.transform; // set target
+            target = obj.gameObject;
             nextWaypoint = obj.transform.position.x;// set waypoint to player 
         }
         // Debug.Log("Chasing player at " + nextWaypoint);     
     }
 
     public void ObjectLost(Collider2D obj)
-    {        
-        activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
-        target = null;
+    {
+        if (activeState == 1 || activeState == 2)
+        {
+            activeState = 1;// switch to patrol mode, leaving next waypoint untouched (last seen position)
+            target = null;
+        }
+    }
+
+    public void hit(int dmg)
+    {
+        if (isBiting)
+        {
+            target.SendMessage("removeSucker", gameObject);
+            isBiting = false;
+        }
+        base.hit(dmg);
+    }
+}
+
+
+class distanceSort : IComparer<Transform>
+{
+    public Vector3 myPosition;
+    public distanceSort(Vector2 pos)
+    {
+        myPosition = pos;
+    }
+    public int Compare(Transform a, Transform b)
+    {
+         float d1 = Vector3.Distance(myPosition, a.position);
+        float d2 = Vector3.Distance(myPosition, b.position);
+        return d1 < d2 ? -1 : (d1 > d2 ? 1 : 0);
     }
 }
