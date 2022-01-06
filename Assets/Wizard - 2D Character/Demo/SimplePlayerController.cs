@@ -324,12 +324,6 @@ public class SimplePlayerController : MonoBehaviour
             cast(fireBallCost);
         }
 	}
-
-    public bool isInvisible()
-    {
-		return GetComponent<invisibilitySpell>().isInvisible();
-    }
-
     public bool addSucker(GameObject newSucker) // Добавить сосущего
     {
         // есть ли место для нового сосущего?

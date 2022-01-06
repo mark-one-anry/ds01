@@ -769,6 +769,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 724151963}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: RadiusSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: TimeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 5195792040044086114, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -834,6 +850,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 724151963}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: RadiusSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: TimeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal (4)
@@ -1317,9 +1349,9 @@ MonoBehaviour:
   target: {fileID: 14103807}
   offset: {x: 0, y: 0, z: -20}
   Xmin: -200
-  Ymin: -6
-  Xmax: 9
-  Ymax: 20
+  Ymin: -600
+  Xmax: 200
+  Ymax: 200
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1652,6 +1684,17 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: -19.21237, y: -0.29750633, z: -0.00005}
     m_Extent: {x: 19.21237, y: 11.1175995, z: 0.00005}
+--- !u!114 &724151963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7215293277778218666, guid: b01104d39a0ad634aaad5b4790850e48, type: 3}
+  m_PrefabInstance: {fileID: 1073783318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01b7920804b9c46961331dfbb19d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876878559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1814,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 724151963}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: RadiusSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: TimeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal (2)
@@ -1948,7 +2007,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036102936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe6825192317c45af0d5182444c7c2, type: 3}
   m_Name: 
@@ -2082,6 +2141,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 724151963}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: RadiusSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: TimeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7407485365228258912, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Name
       value: Crystal (1)
@@ -2385,7 +2460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5166204745258762439, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: jumpPower
-      value: 8
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5166204745258762439, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: movePower
@@ -2501,11 +2576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172466853194336199, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.45
+      value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 9172466853194336199, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.72
+      value: 3.39
       objectReference: {fileID: 0}
     - target: {fileID: 9172466853194336199, guid: f110ee2840df2c24393cf962c185c2a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4673,6 +4748,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082162579}
     m_Modifications:
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 724151963}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: RadiusSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: TimeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2444577107892964766, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 5195792040044086114, guid: ba3f5df36df744d48a9bbc00831dce53, type: 3}
       propertyPath: m_Color.a
       value: 0
