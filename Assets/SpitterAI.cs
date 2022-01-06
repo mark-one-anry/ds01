@@ -129,7 +129,7 @@ public class SpitterAI : EnemyBase
         if (gv != null)
         {
             manaCrystals = gv.getCrystalArray();
-            Debug.Log("manaCrystals" + manaCrystals);
+            // Debug.Log("manaCrystals" + manaCrystals);
         }
         else {
             Debug.Log("NO GLOBAL VARIABLES DEFINED!");

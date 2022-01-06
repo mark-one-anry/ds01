@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalVars : MonoBehaviour
 {
     public const string CRYSTAL_CONTAINER_NAME = "ManaCrystals";
-    private Transform[] crystalsArray; // массив кристалов в сцене
+    private Transform[] crystalsArray; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
     private bool crystalsArrayInitialized = false;
     
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class GlobalVars : MonoBehaviour
             return false;
 
         crystalsArray = CContainer.GetComponentsInChildren<Transform>();
-        // удалить первый компонент т.к. это сам контейнер 
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
         /*CContainer.transform.
         foreach (Transform child in CContainer.transform)
         {
@@ -30,16 +30,16 @@ public class GlobalVars : MonoBehaviour
         }*/
 
 
-        Debug.Log("There are " + crystalsArray.Length + " crystals in the scene: ");
+        // Debug.Log("There are " + crystalsArray.Length + " crystals in the scene: ");
         foreach (Transform e in crystalsArray) {
-            Debug.Log(e.gameObject.name + " at " + e.position.x + "/" + e.position.y);
+           // Debug.Log(e.gameObject.name + " at " + e.position.x + "/" + e.position.y);
         }
         return true;
     }
 
     public Transform[] getCrystalArray()
     {
-        Debug.Log("getCrystalArray invoked: crystalsArrayInitialized = " + crystalsArrayInitialized + ", crystalsArray = " + crystalsArray);
+        // Debug.Log("getCrystalArray invoked: crystalsArrayInitialized = " + crystalsArrayInitialized + ", crystalsArray = " + crystalsArray);
         if (crystalsArrayInitialized)
             return crystalsArray;
         else
