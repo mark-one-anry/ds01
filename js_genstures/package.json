@@ -1,0 +1,17 @@
+{
+  "name": "ds_platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve ./public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Markuan",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "require": "^2.4.20",
+    "serve": "^11.3.2"
+  }
+}

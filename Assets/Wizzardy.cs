@@ -334,6 +334,7 @@ public class Wizzardy : MonoBehaviour
 		// Calculate stretch coefficient
 		float kX = (maxX - minX) > 1 ? Constants.IMAGE_WIDTH / (maxX - minX) : 1;
 		float kY = (maxY - minY) > 1 ? Constants.IMAGE_HEIGHT / (maxY - minY) : 1;
+		float kTotal = kY < kX ? kY : kX;
 
 		// Find image center
 		float xCenter = (maxX - minX) / 2 + minX;
@@ -360,8 +361,8 @@ public class Wizzardy : MonoBehaviour
 		for (int i = 0; i < pointsList.Count; i++)
 		{
 			int x, y;
-			x = (int)((pointsList[i].x - xCenter) * kX) + Constants.IMAGE_WIDTH / 2;
-			y = (int)((pointsList[i].y - yCenter) * kY) + Constants.IMAGE_HEIGHT / 2;
+			x = (int)((pointsList[i].x - xCenter) * kTotal) + Constants.IMAGE_WIDTH / 2;
+			y = (int)((pointsList[i].y - yCenter) * kTotal) + Constants.IMAGE_HEIGHT / 2;
 			scaledCoords[i] = new Vector3(x, y, 0); // unity ����������						
 
 			// посчитали координаты. Теперь в нужном месте массива нужно поставить единицу
